@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="">
+    <list default="true" id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="got app">
+      <change afterPath="$PROJECT_DIR$/SeniorProject/pages/CalendarPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorProject/pages/HomePage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorProject/pages/MessagingPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorProject/pages/ProfilePage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SeniorProject/pages/Style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +24,7 @@
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -41,6 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/bgogel02/Documents/GitHub/2024-final-project/SeniorProject",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -53,7 +61,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SeniorProject" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SeniorProject" />
       <recent name="$PROJECT_DIR$/SeniorProject/ios/SeniorProject/pages" />
       <recent name="$PROJECT_DIR$/SeniorProject/ios/SeniorProject" />
     </key>
@@ -76,11 +88,24 @@
       <workItem from="1706647800277" duration="26000" />
       <workItem from="1706647983179" duration="6229000" />
       <workItem from="1707252648712" duration="10000" />
-      <workItem from="1707252755479" duration="298000" />
+      <workItem from="1707252755479" duration="1262000" />
     </task>
+    <task id="LOCAL-00001" summary="got app">
+      <option name="closed" value="true" />
+      <created>1707253114742</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707253114742</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="got app" />
+    <option name="LAST_COMMIT_MESSAGE" value="got app" />
   </component>
 </project>
