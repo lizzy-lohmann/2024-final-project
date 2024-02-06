@@ -2,9 +2,9 @@
   "name": "untitled",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "public/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node public/index.js",
     "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
