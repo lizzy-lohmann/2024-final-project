@@ -1,17 +1,23 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import  styles  from './styles';
+import Footer from "./Footer";
 
 const Profile = ({ navigation }) => {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Profile Screen</Text>
-            <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={{ padding: 10, backgroundColor: 'green' }}
-            >
-                <Text style={{ color: 'white' }}>Go Back</Text>
-            </TouchableOpacity>
+        <View style={styles.container}>
+            {/* Custom Header */}
+            <View style={styles.header}>
+                {/* Other header content */}
+            </View>
+
+            {/* Screen Content */}
+            <View style={styles.content}>
+                <Text>Profile Screen Content</Text>
+            </View>
+
+            {/* Custom Footer */}
+            <Footer navigation={navigation} />
         </View>
     );
 };

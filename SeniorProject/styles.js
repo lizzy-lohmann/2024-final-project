@@ -16,6 +16,25 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         zIndex: 1000,
     },
+    headerButton: {
+        marginHorizontal: 10, // Add spacing around the buttons
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#000000', // The color of the border
+        borderRadius: 5, // Roundness of the button corners
+    },
+
+    headerButtonText: {
+        color: '#FFFFFF', // Text color for the header buttons
+    },
+
+    searchInput: {
+        flex: 1, // Take up remaining space
+        padding: 10,
+        marginHorizontal: 10, // Add horizontal margin
+        backgroundColor: '#FFFFFF', // Background color for the search input
+        borderRadius: 5, // Roundness of the input field
+    },
     footer: {
         height: 85, // Set the height you want for your footer
         backgroundColor: '#815cac', // Replace with the appropriate background color

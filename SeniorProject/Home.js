@@ -1,28 +1,25 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import  styles  from './styles';
+import styles from './styles'; // Ensure this path is correct to import your styles
+import Footer from './Footer';
 
-const Home = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
+            {/* Custom Header */}
             <View style={styles.header}>
-                <Text>Header</Text>
+                {/* Other header content */}
             </View>
+
+            {/* Screen Content */}
             <View style={styles.content}>
-                <Text>Home Screen</Text>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Profile')}
-                    style={styles.footerButton}
-                >
-                    <Text style={styles.footerButtonText}>Go to Profile</Text>
-                </TouchableOpacity>
+                <Text>Home Screen Content</Text>
             </View>
-            <View style={styles.footer}>
-                {/* Footer buttons go here */}
-                {/* ... */}
-            </View>
+
+            {/* Custom Footer */}
+            <Footer navigation={navigation} />
         </View>
     );
 };
 
-export default Home;
+export default HomeScreen;

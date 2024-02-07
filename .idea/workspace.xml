@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="working on style sheet">
-      <change afterPath="$PROJECT_DIR$/SeniorProject/Calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SeniorProject/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SeniorProject/Message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
+    <list default="true" id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="can go between pages and have basic style">
+      <change afterPath="$PROJECT_DIR$/SeniorProject/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/styles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <workItem from="1706647800277" duration="26000" />
       <workItem from="1706647983179" duration="6229000" />
       <workItem from="1707252648712" duration="10000" />
-      <workItem from="1707252755479" duration="4215000" />
+      <workItem from="1707252755479" duration="7552000" />
     </task>
     <task id="LOCAL-00001" summary="got app">
       <option name="closed" value="true" />
@@ -108,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707254311764</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="working on style sheet">
+      <option name="closed" value="true" />
+      <created>1707334776120</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707334776120</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="got app" />
     <MESSAGE value="working on style sheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on style sheet" />
+    <MESSAGE value="can go between pages and have basic style" />
+    <option name="LAST_COMMIT_MESSAGE" value="can go between pages and have basic style" />
   </component>
 </project>
