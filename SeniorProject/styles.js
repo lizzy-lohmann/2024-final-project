@@ -3,43 +3,45 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFFFFF', // Replace with the appropriate background color
+        backgroundColor: '#FFFFFF',
     },
     header: {
-        height: 85, // Set the height you want for your header
-        backgroundColor: '#815cac', // Replace with the appropriate background color
+        height: 95,
+        backgroundColor: '#815cac',
         justifyContent: 'center',
         alignItems: 'center',
-        elevation: 4, // This adds a shadow on Android
-        shadowOffset: { width: 0, height: 2 }, // These lines add a shadow on iOS
+        flexDirection: 'row',
+        elevation: 4,
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 2,
         zIndex: 1000,
     },
     headerButton: {
-        marginHorizontal: 10, // Add spacing around the buttons
+        marginTop: 35,
+        marginHorizontal: 10,
         padding: 10,
         borderWidth: 1,
-        borderColor: '#000000', // The color of the border
-        borderRadius: 5, // Roundness of the button corners
+        borderRadius: 5,
     },
 
     headerButtonText: {
-        color: '#FFFFFF', // Text color for the header buttons
+        color: '#fbfafd',
     },
 
     searchInput: {
-        flex: 1, // Take up remaining space
+        flex: 1,
         padding: 10,
-        marginHorizontal: 10, // Add horizontal margin
-        backgroundColor: '#FFFFFF', // Background color for the search input
-        borderRadius: 5, // Roundness of the input field
+        marginHorizontal: 10,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 5,
+        marginTop: 35,
     },
     footer: {
-        height: 85, // Set the height you want for your footer
-        backgroundColor: '#815cac', // Replace with the appropriate background color
+        height: 85,
+        backgroundColor: '#815cac',
         borderTopWidth: 1,
-        borderTopColor: '#561d98', // This adds a slight line to the top of the footer to separate it from the content
+        borderTopColor: '#561d98',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -52,14 +54,14 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 85, // This should be the same as your footer height
+        marginBottom: 85,
     },
     footerButton: {
-        flex: 1, // Assign flex to each button to distribute space evenly
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: '#561d98', // Set the border color for the buttons
+        borderColor: '#561d98',
         paddingVertical: 33,
     },
     footerButtonText: {
