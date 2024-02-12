@@ -1,34 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import styles from './styles';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './Home';
+import ProfileScreen from './Profile';
+import CalendarScreen from './Calendar';
+import MessagingScreen from './Message';
 
+const Stack = createNativeStackNavigator();
 
-export default function App() {
+function App() {
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                {/* Content of your header goes here */}
-                <Text>Header</Text>
-            </View>
-            <View style={styles.content}>
-                {/* Content of your page goes here */}
-                <Text>Page Content</Text>
-            </View>
-            <View style={styles.footer}>
-                {/* Footer buttons go here */}
-                <TouchableOpacity style={styles.footerButton}>
-                    <Text style={styles.footerButtonText}>Home</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.footerButton}>
-                    <Text style={styles.footerButtonText}>Calendar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.footerButton}>
-                    <Text style={styles.footerButtonText}>Messaging</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.footerButton}>
-                    <Text style={styles.footerButtonText}>Profile</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+        <NavigationContainer>
+            <Stack.Navigator
+                initialRouteName="Home"
+                screenOptions={{
+                    headerShown: false,
+                }}>
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Profile" component={ProfileScreen} />
+                <Stack.Screen name="Calendar" component={CalendarScreen} />
+                <Stack.Screen name="Messaging" component={MessagingScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }
+
+export default App;
+
+
+
