@@ -5,7 +5,7 @@ This project aims to revamp the Magna International kiosk application for employ
 
 ### Built With
 
-* [![React][React.js]][React-url]
+* ![React][React.js][React-url]
 * ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
@@ -29,7 +29,7 @@ Note: This project is currently under development and is not authorized for exte
 ## Authors
 
 - [Lizzy Lohnmann](https://github.com/lizzy-lohmann)
-- [Justin ]()
+- [Justin Zellinger]()
 - [Chase Dittmer](https://github.com/ChaseDitt)
 - [Brenna Gogel](https://github.com/bgogel02)
 
