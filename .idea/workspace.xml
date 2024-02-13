@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="can go between pages and have basic style" />
+    <list default="true" id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="can go between pages and have basic style">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +83,7 @@
       <workItem from="1706647983179" duration="6229000" />
       <workItem from="1707252648712" duration="10000" />
       <workItem from="1707252755479" duration="10414000" />
-      <workItem from="1707347287515" duration="213000" />
+      <workItem from="1707347287515" duration="1088000" />
     </task>
     <task id="LOCAL-00001" summary="got app">
       <option name="closed" value="true" />
@@ -107,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707334776120</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="can go between pages and have basic style">
+      <option name="closed" value="true" />
+      <created>1707411311252</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707411311252</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
