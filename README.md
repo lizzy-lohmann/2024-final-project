@@ -5,7 +5,7 @@ This project aims to revamp the Magna International kiosk application for employ
 
 ### Built With
 
-* ![React][React.js][React-url]
+* [![React][React.js]][React-url]
 * ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
