@@ -29,7 +29,7 @@ Note: This project is currently under development and is not authorized for exte
 ## Authors
 
 - [Lizzy Lohnmann](https://github.com/lizzy-lohmann)
-- [Justin Zellinger]()
+- [Justin Schumacher]()
 - [Chase Dittmer](https://github.com/ChaseDitt)
 - [Brenna Gogel](https://github.com/bgogel02)
 
