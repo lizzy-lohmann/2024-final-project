@@ -67,6 +67,21 @@ const styles = StyleSheet.create({
     footerButtonText: {
         color: '#f6f3f3',
     },
+
+    //added for profile page
+    editTextBox: {
+        borderWidth: 1,
+        borderColor: 'black',
+        borderRadius: 5,
+        padding: 10,
+    },
+
+    fieldTitle: {
+        textAlign: 'left',
+        marginBottom: 5,
+        color: '#555',
+        fontWeight: 'bold',
+    }
 });
 
 export default styles;
