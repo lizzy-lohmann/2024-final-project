@@ -43,6 +43,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Node.js.App.jsx.executor": "Run",
@@ -61,7 +62,7 @@
     "ts.external.directory.path": "/Users/lizzylohmann/Documents/2024-final-project/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SeniorProject" />
@@ -91,6 +92,7 @@
       <workItem from="1706647983179" duration="6229000" />
       <workItem from="1707252648712" duration="10000" />
       <workItem from="1707252755479" duration="10414000" />
+      <workItem from="1707347287515" duration="1088000" />
     </task>
     <task id="LOCAL-00001" summary="got app">
       <option name="closed" value="true" />
@@ -116,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707334776120</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="can go between pages and have basic style">
+      <option name="closed" value="true" />
+      <created>1707411311252</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707411311252</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
