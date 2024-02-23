@@ -3,16 +3,16 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Events = ({ title, date, time, description, RSVP, socials }) => {
     return (
-        <View style={styles.postContainer}>
+        <View style={styles.eventContainer}>
             <View style={styles.profileHeader}>
-                <View style={styles.profileText}>
+                <View style={styles.eventHeader}>
                     <Text style={styles.name}>{title}</Text>
                     <Text>{date}</Text>
                     <Text>{time}</Text>
                 </View>
             </View>
             <Text style={styles.bio}>{description}</Text>
-            <View style={styles.profileFooter}>
+            <View style={styles.eventFooter}>
                 {/*Add button functionality... maybe here?                                JUSTIN/CHASE*/}
                 <TouchableOpacity >
                     <Image
@@ -21,7 +21,7 @@ const Events = ({ title, date, time, description, RSVP, socials }) => {
                     />
                     {/* <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Rakib Hassan Rahim - Flaticon</a> */}
                 </TouchableOpacity>
-                <View style={styles.profileTextTwo}>
+                <View style={styles.footerText}>
                     <Text>{RSVP}</Text>
                     <Text>{socials.join(' ~ ')}</Text>
                 </View>
@@ -31,7 +31,7 @@ const Events = ({ title, date, time, description, RSVP, socials }) => {
 };
 
 const styles = StyleSheet.create({
-    postContainer: {
+    eventContainer: {
         backgroundColor: '#fbfafd',
         borderRadius: 20,
         padding: 16,
@@ -46,21 +46,11 @@ const styles = StyleSheet.create({
         shadowRadius: 1.41,
         elevation: 2,
     },
-    profileHeader: {
+    eventHeader: {
         flexDirection: 'row',
         alignItems: 'center',
     },
-    avatar: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        backgroundColor: '#C4C4C4',
-    },
-    profileText: {
-        marginLeft: 8,
-        alignItems: 'left',
-    },
-    profileTextTwo: {
+    footerText: {
         marginLeft: 40,
         alignItems: 'center',
 
@@ -71,7 +61,7 @@ const styles = StyleSheet.create({
     bio: {
         marginTop: 10,
     },
-    profileFooter: {
+    eventFooter: {
         marginTop: 8,
         flexDirection: 'row',
         textAlign: 'center',

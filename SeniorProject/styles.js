@@ -1,7 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    fullScreen: {
+        flex: 1,
+        justifyContent: 'space-between'
+    },
     container: {
+        flexGrow: 1,
         flex: 1,
         backgroundColor: '#FFFFFF',
     },
