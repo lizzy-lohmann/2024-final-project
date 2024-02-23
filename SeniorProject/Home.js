@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
 
     useEffect(() => {
         // Fetch the profile data from your backend or local storage                       JUSTIN/CHASE
-        // static data bellow for example
+        // static data bellow for example         change for collected data from database
         const fetchedProfiles = [
             {
                 profileImage: 'https://example.com/image1.jpg',
