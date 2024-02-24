@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
-import styles from './styles'; // Assuming your style.js file is named 'style.js'
+import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
+import styles from './styles';
 import Footer from "./Footer";
 
 const Profile = ({ navigation }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [name, setName] = useState("John Doe");
+    const [pronouns, setPronouns] = useState("He/Him");
+    const [birthday, setBirthday] = useState("January 1, 1990");
+    const [profession, setProfession] = useState("Software Engineer");
     const [interests, setInterests] = useState("Coding, Reading, Hiking");
     const [aboutMe, setAboutMe] = useState("I am a software developer passionate about building cool apps!");
+    const [location, setLocation] = useState("New York, NY");
 
     const handleEdit = () => {
         setIsEditing(!isEditing);
@@ -21,17 +25,28 @@ const Profile = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            {/* Custom Header */}
             <View style={styles.header}>
-                {/* Header content */}
                 <TouchableOpacity onPress={handleEdit} style={styles.headerButton}>
                     <Text style={styles.headerButtonText}>{isEditing ? "Save" : "Edit"}</Text>
                 </TouchableOpacity>
             </View>
 
-            {/* Screen Content */}
             <View style={styles.content}>
-                {/* Name Box */}
+
+
+                <View style={styles.avatarContainer}>
+                    <View style={styles.avatar}>
+                        <Image
+                            style={styles.avatar}
+                            source={{/*     image source */}}
+                        />
+                    </View>
+
+                    <TouchableOpacity>
+                        <Text>Update Photo</Text>
+                    </TouchableOpacity>
+                </View>
+
                 <View style={styles.fieldContainer}>
                     <Text style={styles.fieldTitle}>Name:</Text>
                     <View style={[styles.textBox, isEditing && styles.editTextBox]}>
@@ -47,6 +62,51 @@ const Profile = ({ navigation }) => {
                     </View>
                 </View>
 
+                <View style={styles.fieldContainer}>
+                    <Text style={styles.fieldTitle}>Pronouns:</Text>
+                    <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                        {isEditing ? (
+                            <TextInput
+                                style={styles.input}
+                                value={pronouns}
+                                onChangeText={setPronouns}
+                            />
+                        ) : (
+                            <Text style={styles.fieldText}>{pronouns}</Text>
+                        )}
+                    </View>
+                </View>
+
+                <View style={styles.fieldContainer}>
+                    <Text style={styles.fieldTitle}>Birthday:</Text>
+                    <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                        {isEditing ? (
+                            <TextInput
+                                style={styles.input}
+                                value={birthday}
+                                onChangeText={setBirthday}
+                            />
+                        ) : (
+                            <Text style={styles.fieldText}>{birthday}</Text>
+                        )}
+                    </View>
+                </View>
+
+                <View style={styles.fieldContainer}>
+                    <Text style={styles.fieldTitle}>Profession:</Text>
+                    <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                        {isEditing ? (
+                            <TextInput
+                                style={styles.input}
+                                value={profession}
+                                onChangeText={setProfession}
+                            />
+                        ) : (
+                            <Text style={styles.fieldText}>{profession}</Text>
+                        )}
+                    </View>
+                </View>
+
                 {/* About Me */}
                 <View style={styles.fieldContainer}>
                     <Text style={styles.fieldTitle}>About Me:</Text>
@@ -55,7 +115,7 @@ const Profile = ({ navigation }) => {
                             <TextInput
                                 style={styles.input}
                                 value={aboutMe}
-                                onChangeText={setName}
+                                onChangeText={setAboutMe}
                             />
                         ) : (
                             <Text style={styles.fieldText}>{aboutMe}</Text>
@@ -72,10 +132,25 @@ const Profile = ({ navigation }) => {
                             <TextInput
                                 style={styles.input}
                                 value={interests}
-                                onChangeText={setName}
+                                onChangeText={setInterests}
                             />
                         ) : (
                             <Text style={styles.fieldText}>{interests}</Text>
+                        )}
+                    </View>
+                </View>
+
+                <View style={styles.fieldContainer}>
+                    <Text style={styles.fieldTitle}>Location:</Text>
+                    <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                        {isEditing ? (
+                            <TextInput
+                                style={styles.input}
+                                value={location}
+                                onChangeText={setLocation}
+                            />
+                        ) : (
+                            <Text style={styles.fieldText}>{location}</Text>
                         )}
                     </View>
                 </View>

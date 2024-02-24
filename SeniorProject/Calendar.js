@@ -24,7 +24,9 @@ const Calendar = ({ navigation }) => {
                 time: '12:00pm',
                 description: 'Do you love to read? Come to Pollys Soups for a luncheon and meet other readers! Bring your favorite book! ',
                 RSVP: 'N/A',
-                socials: ['insta: @pollysSoup', 'facebook: Pollys Soup'],
+                instagram: 'https://www.instagram.com/bgogel02/',
+                facebook: 'N/A',
+                website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/BB'
             },
             {
                 title: 'Vues Social',
@@ -32,11 +34,16 @@ const Calendar = ({ navigation }) => {
                 time: '7-11pm',
                 description: 'Want to meet new people around your age? The Vue is hosting a social for young people in their 20s! Come gather have drinks and appetizers',
                 RSVP: 'www.rsvp.com',
-                socials: ['inst: @vueRoof', 'www.vueRooftop.com', 'facebook: Vue Rooftop'],
+                instagram: 'https://www.instagram.com/lizzy_lohmann33/',
+                facebook: 'N/A',
+                website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/Lizzy',
             },
         ];
         setEvents(fetchedEvents);
     }, []);
+    const likedEvents = () => {
+        setEvents(likedEvents);
+    };
 
     return (
         <View style={styles.fullScreen}>
@@ -59,9 +66,11 @@ const Calendar = ({ navigation }) => {
                     <Events key={index} {...event} />
                 ))}
             </ScrollView>
+            <TouchableOpacity onPress={likedEvents} style ={styles.subFooter} >
+                <Text style={styles.subFooterText}>My Liked Events</Text>
+            </TouchableOpacity>
             <Footer navigation={navigation} />
         </View>
     );
 };
-
 export default Calendar;
