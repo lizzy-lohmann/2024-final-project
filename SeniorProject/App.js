@@ -5,17 +5,20 @@ import HomeScreen from './Home';
 import ProfileScreen from './Profile';
 import CalendarScreen from './Calendar';
 import MessagingScreen from './Message';
+import Login from './Login';
+import SignUp from './SignUp';
+
 
 const Stack = createNativeStackNavigator();
+
 
 function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Home"
-                screenOptions={{
-                    headerShown: false,
-                }}>
+                initialRouteName="Login">
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="SignUp" component={SignUp} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="Calendar" component={CalendarScreen} />
@@ -24,6 +27,7 @@ function App() {
         </NavigationContainer>
     );
 }
+
 
 export default App;
 
