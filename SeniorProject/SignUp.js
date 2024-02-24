@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, CheckBox } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 
 
 const SignUp = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [pronouns, setPronouns] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [profession, setProfession] = useState('');
+    const [interests, setInterests] = useState('');
+    const [aboutMe, setAboutMe] = useState('');
+    const [location, setLocation] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
 
-    const handleLogin = () => {
-        // Perform login logic
+    const createAccount = () => {
+        // Perform login logic                                 JUSTIN/CHASE
         console.log('Login pressed with username:', username, 'and password:', password);
+        navigation.navigate('Home');
     };
-
-
     const toggleShowPassword = () => {
         setIsPasswordVisible(!isPasswordVisible);
     };
@@ -35,19 +41,62 @@ const SignUp = ({ navigation }) => {
                 secureTextEntry={!isPasswordVisible}
             />
             <View style={styles.checkboxContainer}>
-                <CheckBox
+                {/*
+                <Box
                     value={isPasswordVisible}
                     onValueChange={toggleShowPassword}
                 />
+                */}
                 <Text>Show Password</Text>
             </View>
-            <Button title="Login" onPress={handleLogin} />
-            <View style={styles.signupPrompt}>
-                <Text>Don't have an account? </Text>
-                <TouchableOpacity onPress={() => console.log('Sign up pressed')}>
-                    <Text style={styles.signupText}>Sign up</Text>
-                </TouchableOpacity>
-            </View>
+            <TextInput
+                style={styles.input}
+                placeholder="Name"
+                value={name}
+                onChangeText={setName}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Pronouns"
+                value={pronouns}
+                onChangeText={setPronouns}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Birthday"
+                value={birthday}
+                onChangeText={setBirthday}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Profession"
+                value={profession}
+                onChangeText={setProfession}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Interests (seperate by ',')"
+                value={interests}
+                onChangeText={setInterests}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Bio"
+                value={aboutMe}
+                onChangeText={setAboutMe}
+            />
+            {/*             Change so location is drop down?                                          */}
+            <TextInput
+                style={styles.input}
+                placeholder="Location"
+                value={location}
+                onChangeText={setLocation}
+            />
+
+
+            <Button title="Create Account" onPress={createAccount} />
+
+
         </View>
     );
 };
@@ -81,6 +130,4 @@ const styles = StyleSheet.create({
         color: 'blue',
     },
 });
-
-
 export default SignUp;

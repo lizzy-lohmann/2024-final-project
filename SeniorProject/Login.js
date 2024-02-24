@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, CheckBox } from 'react-native';
+import {View, Text, TextInput, Button, TouchableOpacity, StyleSheet} from 'react-native';
 
 
 const Login = ({ navigation }) => {
@@ -9,9 +9,9 @@ const Login = ({ navigation }) => {
 
 
     const handleLogin = () => {
-        // Perform login logic                                 JUSTIN/CHASE
+        // Perform login logic
         console.log('Login pressed with username:', username, 'and password:', password);
-        navigation.navigate('SignUp')
+        navigation.navigate('Home');
     };
 
 
@@ -36,22 +36,20 @@ const Login = ({ navigation }) => {
                 secureTextEntry={!isPasswordVisible}
             />
             <View style={styles.checkboxContainer}>
-                <CheckBox
+                {/*
+                <Box
                     value={isPasswordVisible}
                     onValueChange={toggleShowPassword}
                 />
+                */}
                 <Text>Show Password</Text>
             </View>
-
-
             <Button title="Login" onPress={handleLogin} />
             <View style={styles.signupPrompt}>
                 <Text>Don't have an account? </Text>
                 <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
                     <Text style={styles.signupText}>Sign up</Text>
                 </TouchableOpacity>
-
-
             </View>
         </View>
     );
