@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     header: {
         height: 95,
         backgroundColor: '#815cac',
-        justifyContent: 'center',
+        //justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
         elevation: 4,
@@ -28,6 +28,14 @@ const styles = StyleSheet.create({
         padding: 10,
         borderWidth: 1,
         borderRadius: 5,
+    },
+    headerButtonTwo: {
+        marginTop: 35,
+        marginHorizontal: 10,
+        padding: 10,
+        borderWidth: 1,
+        borderRadius: 5,
+        alignItems: 'flex-end'
     },
 
     headerButtonText: {
@@ -50,10 +58,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
+        //position: 'absolute',
     },
     content: {
         flex: 1,
@@ -86,7 +91,19 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         color: '#555',
         fontWeight: 'bold',
-    }
+    },
+
+    //added for calendar
+    subFooter: {
+        backgroundColor: '#b28edc',
+        padding: 10,
+        alignItems: 'flex-start',
+    },
+    subFooterText: {
+        fontSize: 16,
+        color: '#ffffff',
+        textAlign: 'left',
+    },
 });
 
 export default styles;

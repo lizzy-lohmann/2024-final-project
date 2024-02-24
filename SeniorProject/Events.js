@@ -1,19 +1,25 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 
-const Events = ({ title, date, time, description, RSVP, socials }) => {
+const Events = ({ title, date, time, description, RSVP, instagram, facebook, website }) => {
+    const handlePressRSVP = () => {
+        Linking.openURL(RSVP).catch(err => console.error("Couldn't load page", err));
+    };
+    const openLink = (url) => {
+        Linking.openURL(url).catch(err => console.error("Couldn't load page", err));
+    };
+
     return (
         <View style={styles.eventContainer}>
-            <View style={styles.profileHeader}>
-                <View style={styles.eventHeader}>
-                    <Text style={styles.name}>{title}</Text>
-                    <Text>{date}</Text>
-                    <Text>{time}</Text>
+            <View style={styles.eventHeader}>
+                <Text style={styles.title}>{title}</Text>
+                <View style={styles.dateContainer}>
+                    <Text style={styles.date}>{date}</Text>
+                    <Text style={styles.time}>{time}</Text>
                 </View>
             </View>
-            <Text style={styles.bio}>{description}</Text>
+            <Text style={styles.description}>{description}</Text>
             <View style={styles.eventFooter}>
-                {/*Add button functionality... maybe here?                                JUSTIN/CHASE*/}
                 <TouchableOpacity >
                     <Image
                         style={styles.likeButton}
@@ -21,9 +27,19 @@ const Events = ({ title, date, time, description, RSVP, socials }) => {
                     />
                     {/* <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Rakib Hassan Rahim - Flaticon</a> */}
                 </TouchableOpacity>
-                <View style={styles.footerText}>
-                    <Text>{RSVP}</Text>
-                    <Text>{socials.join(' ~ ')}</Text>
+                <TouchableOpacity onPress={handlePressRSVP}>
+                    <Text style={styles.rsvp}>RSVP</Text>
+                </TouchableOpacity>
+                <View style={styles.socialsContainer}>
+                    <TouchableOpacity onPress={() => openLink(instagram)}>
+                        <Text style={styles.socialText}>Instagram</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => openLink(facebook)}>
+                        <Text style={styles.socialText}>Facebook</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => openLink(website)}>
+                        <Text style={styles.socialText}>{website}</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -48,27 +64,53 @@ const styles = StyleSheet.create({
     },
     eventHeader: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
     },
-    footerText: {
-        marginLeft: 40,
-        alignItems: 'center',
-
-    },
-    name: {
+    title: {
         fontWeight: 'bold',
+        fontSize: 18,
+        flex: 1,
     },
-    bio: {
+    dateContainer: {
+        alignItems: 'flex-end',
+    },
+    date: {
+        fontSize: 16,
+    },
+    time: {
+        fontSize: 16,
+    },
+    description: {
         marginTop: 10,
     },
     eventFooter: {
         marginTop: 8,
         flexDirection: 'row',
-        textAlign: 'center',
+        alignItems: 'center',
     },
     likeButton: {
-        width: 35,
-        height: 35,
+        width: 40,
+        height: 40,
+        marginRight: 10,
+    },
+    rsvp: {
+        color: 'blue',
+        textDecorationLine: 'underline',
+        marginLeft: 2,
+        marginTop: 40,
+        fontSize: 14,
+    },
+    socialsContainer: {
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        flex: 1,
+        marginRight: 10,
+    },
+    socialText: {
+        fontSize: 14,
+        color: '#561d98',
+        fontWeight: 'bold',
     },
 });
 
