@@ -85,12 +85,40 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 10,
     },
-
+    textBox: {
+        backgroundColor: '#b28edc',
+        padding: 10,
+        borderRadius: 5,
+        justifyContent: 'center',
+    },
+    fieldText: {
+        textAlign: 'left',
+        color: '#efdede'
+    },
     fieldTitle: {
         textAlign: 'left',
-        marginBottom: 5,
-        color: '#555',
+        marginBottom: 1,
+        color: '#9b96a1',
         fontWeight: 'bold',
+    },
+    fieldContainer: {
+        backgroundColor: '#815cac',
+        width: 380,
+        borderRadius: 5,
+        padding: 5,
+        marginVertical: 5,
+        marginHorizontal: 10,
+    },
+    avatarContainer: {
+        alignItems: 'center',
+        marginTop: 80,
+    },
+    avatar: {
+        width: 120,
+        height: 135,
+        borderRadius: 65,
+        backgroundColor: '#cccccc',
+        marginBottom: 5,
     },
 
     //added for calendar
