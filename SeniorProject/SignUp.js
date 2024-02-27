@@ -17,7 +17,7 @@ const SignUp = ({ navigation }) => {
 
     const createAccount = () => {
         // Perform login logic                                 JUSTIN/CHASE
-        console.log('Login pressed with username:', username, 'and password:', password);
+        console.log('Account made with username:', username, 'and password:', password);
         navigation.navigate('Home');
     };
     const toggleShowPassword = () => {
