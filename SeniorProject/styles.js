@@ -132,6 +132,31 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         textAlign: 'left',
     },
+
+    // Styles for the chat list items
+    chatItem: {
+        flexDirection: 'row',
+        padding: 10,
+        borderBottomWidth: 1,
+        borderColor: '#ededed',
+        alignItems: 'center',
+    },
+    userName: {
+        fontWeight: 'bold',
+        fontSize: 16,
+        color: '#333',
+        flex: 1, // Take up as much space as possible horizontally
+     },
+    lastMessage: {
+        fontSize: 14,
+        color: '#666',
+        marginTop: 2, // Space from the username
+    },
+    lastMessageTime: {
+        fontSize: 12,
+        color: '#999',
+        marginLeft: 'auto', // Align to the right of the chat item
+    },
 });
 
 export default styles;
