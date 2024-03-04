@@ -7,6 +7,7 @@ import CalendarScreen from './Calendar';
 import MessagingScreen from './Message';
 import Login from './Login';
 import SignUp from './SignUp';
+import ChatDetailScreen from './ChatDetailScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,7 @@ function App() {
                 <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="Calendar" component={CalendarScreen} />
                 <Stack.Screen name="Messaging" component={MessagingScreen} />
+                <Stack.Screen name="ChatDetailScreen" component={ChatDetailScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

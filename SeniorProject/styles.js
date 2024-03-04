@@ -137,26 +137,92 @@ const styles = StyleSheet.create({
     chatItem: {
         flexDirection: 'row',
         padding: 10,
-        borderBottomWidth: 1,
-        borderColor: '#ededed',
         alignItems: 'center',
+        borderBottomWidth: 1,
+        borderColor: '#cccccc',
+        backgroundColor: '#fff',
+      },
+    avatarContainer: {
+        marginRight: 10,
+    },
+    avatar: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+    },
+    chatDetails: {
+        flex: 1,
+        justifyContent: 'center',
     },
     userName: {
         fontWeight: 'bold',
         fontSize: 16,
-        color: '#333',
-        flex: 1, // Take up as much space as possible horizontally
-     },
+        color: '#000',
+    },
     lastMessage: {
         fontSize: 14,
-        color: '#666',
-        marginTop: 2, // Space from the username
+        color: '#999',
     },
     lastMessageTime: {
         fontSize: 12,
         color: '#999',
-        marginLeft: 'auto', // Align to the right of the chat item
+        marginLeft: 'auto',
     },
+    notificationBubble: {
+        backgroundColor: 'red',
+        borderRadius: 15,
+        width: 30,
+        height: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 'auto',
+    },
+    notificationText: {
+        color: '#fff',
+        fontWeight: 'bold',
+    },
+
+    // Styles specific to ChatDetailScreen
+    inputContainer: {
+        flexDirection: 'row',
+        padding: 10,
+        borderTopWidth: 1,
+        borderColor: '#cccccc',
+        backgroundColor: '#fff',
+    },
+    input: {
+        flex: 1,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        borderRadius: 20,
+        marginRight: 10,
+        fontSize: 16,
+    },
+    myMessage: {
+        marginVertical: 5,
+        padding: 10,
+        backgroundColor: '#0078D7', // A shade of blue
+        alignSelf: 'flex-end',
+        borderRadius: 15,
+        maxWidth: '80%',
+    },
+    theirMessage: {
+        marginVertical: 5,
+        padding: 10,
+        backgroundColor: '#E1E1E1', // Light gray
+        alignSelf: 'flex-start',
+        borderRadius: 15,
+        maxWidth: '80%',
+    },
+    messageText: {
+        fontSize: 16,
+        color: '#fff',
+    },
+    theirMessageText: {
+        color: '#000', // Black color for text in 'their' messages
+    },
+    
 });
 
 export default styles;
