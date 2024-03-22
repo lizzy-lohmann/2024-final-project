@@ -63,6 +63,7 @@ const SignUp = ({ navigation }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const createAccount = () => {
+
         const values = {
             user: {
                 username: username,
@@ -77,6 +78,9 @@ const SignUp = ({ navigation }) => {
             }
         };
 
+        // Perform login logic                                 JUSTIN/CHASE
+        console.log('Account made with username:', username, 'and password:', password);
+        navigation.navigate('Home');
     };
     const toggleShowPassword = () => {
         setIsPasswordVisible(!isPasswordVisible);
