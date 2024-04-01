@@ -2,18 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { collection, getDocs } from "firebase/firestore";
-
-
-
-// import React, { useState } from 'react';
-// import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
-// var firebase = require('firebase/app');
-// const { getDatabase, ref, onValue, set, update, get } = require('firebase/database');
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-//import firebase from 'firebase/app';
-//import 'firebase/database';
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -62,25 +51,37 @@ const SignUp = ({ navigation }) => {
     const [location, setLocation] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const createAccount = () => {
+    const createAccount = async () => {
+        const colRef = collection(db, "users")
 
-        const values = {
-            user: {
+        try {
+            const newUser = {
                 username: username,
-                password: password, // Not recommended to store passwords like this, just for demonstration
+                password: password,
                 name: name,
                 pronouns: pronouns,
                 birthday: birthday,
                 profession: profession,
                 interests: interests,
                 aboutMe: aboutMe,
-                location: location
-            }
-        };
-
-        // Perform login logic                                 JUSTIN/CHASE
-        console.log('Account made with username:', username, 'and password:', password);
-        navigation.navigate('Home');
+                location: location,
+            };
+            const docRef = await addDoc(colRef, newUser);
+            console.log("New user added with ID: ", docRef.id);
+            // Reset input fields after successful user creation
+            setUsername('');
+            setPassword('');
+            setName('');
+            setPronouns('');
+            setBirthday('');
+            setProfession('');
+            setInterests('');
+            setAboutMe('');
+            setLocation('');
+            navigation.navigate('Home');
+        } catch (error) {
+            console.error('Error creating account:', error);
+        }
     };
     const toggleShowPassword = () => {
         setIsPasswordVisible(!isPasswordVisible);
