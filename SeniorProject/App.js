@@ -12,14 +12,13 @@ import ChatDetailScreen from './ChatDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
-
 function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator
                 initialRouteName="Login"
-                screenOptions={{headerShown: false,}}>
-                <Stack.Screen name="Login" component={Login}/>
+                screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="SignUp" component={SignUp} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Profile" component={ProfileScreen} />
@@ -31,8 +30,4 @@ function App() {
     );
 }
 
-
 export default App;
-
-
-

@@ -2,7 +2,8 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
-    "expo": "^50.0.4",
+    "expo": "^49.0.23",
+    "mongodb": "^6.3.0",
     "react-native-safe-area-context": "^4.9.0",
     "react-native-screens": "^3.29.0"
   },
