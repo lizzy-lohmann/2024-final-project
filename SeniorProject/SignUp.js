@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const colRef = collection(db, "users")
 
-const SignUp = ({ navigation }) => {
+const checkUser = async (uName) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -38,8 +38,9 @@ const SignUp = ({ navigation }) => {
             .catch(error => console.error('Error fetching users:', error));
 
     }, []); // Empty dependency array to ensure this effect runs only once
+}
 
-
+const SignUp = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -53,7 +54,12 @@ const SignUp = ({ navigation }) => {
 
     const createAccount = async () => {
         const colRef = collection(db, "users")
-
+        const querySnapshot = await getDocs(query(collection(db, "users"), where("username", "==", username)));
+        if (!querySnapshot.empty) {
+            // Username already exists, display message to the user
+            alert("Username already exists. Please choose a different username.");
+            return; // Exit the function without adding the user
+        }
         try {
             const newUser = {
                 username: username,
