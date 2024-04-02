@@ -13,10 +13,20 @@ const Post = ({ profileImage, name, age, pronouns, bio, profession, interests })
                     <Text style={styles.name}>{name}, {age}</Text>
                     <Text>{pronouns}</Text>
                 </View>
+                <View style={styles.message}>
+                    {/*Add button message functionality... maybe here?                                JUSTIN/CHASE*/}
+                    <TouchableOpacity >
+                        <Image
+                            style={styles.likeButton}
+                            source={require('./assets/chat.png')}
+                        />
+                        {/*<a href="https://www.flaticon.com/free-icons/message" title="message icons">Message icons created by mattbadal - Flaticon</a>*/}
+                    </TouchableOpacity>
+                </View>
             </View>
             <Text style={styles.bio}>{bio}</Text>
             <View style={styles.profileFooter}>
-                {/*Add button functionality... maybe here?                                JUSTIN/CHASE*/}
+                {/*Add button like functionality... maybe here?                                JUSTIN/CHASE*/}
                 <TouchableOpacity >
                     <Image
                         style={styles.likeButton}
@@ -52,6 +62,8 @@ const styles = StyleSheet.create({
     profileHeader: {
         flexDirection: 'row',
         alignItems: 'center',
+        position: 'relative',
+
     },
     avatar: {
         width: 50,
@@ -83,6 +95,13 @@ const styles = StyleSheet.create({
         width: 35,
         height: 35,
     },
+    message: {
+        right: 2,
+        top: 6,
+        position: 'absolute',
+        width: 45,
+        height: 45,
+    }
 });
 
 export default Post;
