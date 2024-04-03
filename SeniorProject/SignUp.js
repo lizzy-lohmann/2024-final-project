@@ -16,7 +16,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const colRef = collection(db, "users")
+const colRef = collection(db, "users");
 
 const checkUser = async (uName) => {
     const [users, setUsers] = useState([]);
