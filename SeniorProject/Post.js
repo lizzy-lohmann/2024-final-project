@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
         height: 35,
     },
     message: {
-        right: 2,
-        top: 6,
+        right: 8,
+        top: 4,
         position: 'absolute',
-        width: 45,
-        height: 45,
+        width: 25,
+        height: 25,
     }
 });
 

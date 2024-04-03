@@ -8,12 +8,11 @@ const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
         flex: 1,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#d3d1d1',
     },
     header: {
         height: 95,
         backgroundColor: '#815cac',
-        //justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
         elevation: 4,
@@ -23,11 +22,12 @@ const styles = StyleSheet.create({
         zIndex: 1000,
     },
     headerButton: {
-        marginTop: 35,
-        marginHorizontal: 10,
+        marginTop: 30,
+        marginHorizontal: 13,
         padding: 10,
-        borderWidth: 1,
-        borderRadius: 5,
+        height: 25,
+        width: 25,
+        alignItems: 'center'
     },
     headerButtonTwo: {
         marginTop: 35,
@@ -37,28 +37,21 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: 'flex-end'
     },
-
-    headerButtonText: {
-        color: '#fbfafd',
-    },
-
     searchInput: {
         flex: 1,
         padding: 10,
-        marginHorizontal: 10,
+        marginLeft: 15,
         backgroundColor: '#FFFFFF',
         borderRadius: 5,
         marginTop: 35,
     },
     footer: {
         height: 85,
-        backgroundColor: '#815cac',
+        backgroundColor: '#ffffff',
         borderTopWidth: 1,
-        borderTopColor: '#561d98',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        //position: 'absolute',
     },
     content: {
         flex: 1,
@@ -75,7 +68,15 @@ const styles = StyleSheet.create({
         paddingVertical: 33,
     },
     footerButtonText: {
-        color: '#f6f3f3',
+        color: '#561d98',
+    },
+    footerButtonActive: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 85,
+        borderColor: '#000000',
+        paddingVertical: 33,
     },
 
     //added for profile page
@@ -142,14 +143,6 @@ const styles = StyleSheet.create({
         borderColor: '#cccccc',
         backgroundColor: '#fff',
       },
-    avatarContainer: {
-        marginRight: 10,
-    },
-    avatar: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-    },
     chatDetails: {
         flex: 1,
         justifyContent: 'center',

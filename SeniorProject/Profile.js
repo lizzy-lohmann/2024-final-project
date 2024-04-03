@@ -26,7 +26,7 @@ const Profile = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity onPress={handleEdit} style={styles.headerButton}>
+                <TouchableOpacity onPress={handleEdit} style={styles.headerButtonTwo}>
                     <Text style={styles.headerButtonText}>{isEditing ? "Save" : "Edit"}</Text>
                 </TouchableOpacity>
             </View>

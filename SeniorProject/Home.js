@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, ScrollView, Image, StyleSheet} from 'react-native';
 import styles from './styles';
 import Footer from './Footer';
 import Post from "./Post";
@@ -42,30 +42,37 @@ const Home = ({ navigation }) => {
     return (
         <View style={styles.fullScreen}>
             <View style={styles.header}>
-                <TouchableOpacity onPress={() => {/* Open filter modal or screen */}} style={styles.headerButton}>
-                    <Text style={styles.headerButtonText}>Filters</Text>
+                <TouchableOpacity onPress={() => {/* Open filter modal or screen */}} >
+                    {/*<a href="https://www.flaticon.com/free-icons/filter" title="filter icons">Filter icons created by herikus - Flaticon</a>*/}
+                    <Image
+                        style={styles.headerButton}
+                        source={require('./assets/filter.png')}
+                    />
                 </TouchableOpacity>
                 <TextInput
                     style={styles.searchInput}
                     onChangeText={setSearchQuery}
                     value={searchQuery}
-                    placeholder="Search"
+                    source={require('./assets/find.png')}
                     placeholderTextColor="#000000"
                     returnKeyType="search"
                     onSubmitEditing={handleSearch}
                 />
-                <TouchableOpacity onPress={handleSearch} style={styles.headerButton}>
-                    <Text style={styles.headerButtonText}>Search</Text>
-                </TouchableOpacity>
+                <Image
+                    style={styles.headerButton}
+                    source={require('./assets/find.png')}
+                />
+                {/*<a href="https://www.flaticon.com/free-icons/magnifier" title="magnifier icons">Magnifier icons created by The Icon Tree - Flaticon</a>*/}
             </View>
             <ScrollView style={styles.container}>
                 {profiles.map((profile, index) => (
                     <Post key={index} {...profile} />
                 ))}
             </ScrollView>
-            <Footer navigation={navigation} />
+            <Footer navigation={navigation}/>
         </View>
     );
 };
+
 
 export default Home;
