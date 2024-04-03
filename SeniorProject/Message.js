@@ -32,7 +32,7 @@ const Message = ({ navigation }) => {
             />
 
             {/* Custom Footer */}
-            <Footer navigation={navigation} />
+            <Footer navigation={navigation} activeTab="Messaging" />
         </View>
     );
 };

@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     footer: {
         height: 85,
         backgroundColor: '#ffffff',
-        borderTopWidth: 1,
+        //borderTopWidth: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -64,19 +64,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: '#561d98',
+        borderTopWidth:2,
+        borderColor: '#9d7ac7',
         paddingVertical: 33,
     },
     footerButtonText: {
-        color: '#561d98',
+        color: '#815cac',
+        textDecorationStyle: "double",
     },
-    footerButtonActive: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 85,
-        borderColor: '#000000',
+    activeFooterButton: {
+        borderTopWidth:4,
+        borderColor: '#561d98',
         paddingVertical: 33,
+        marginBottom: 0,
     },
 
     //added for profile page
@@ -217,5 +217,4 @@ const styles = StyleSheet.create({
     },
     
 });
-
 export default styles;

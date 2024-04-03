@@ -158,7 +158,7 @@ const Profile = ({ navigation }) => {
             </View>
 
             {/* Custom Footer */}
-            <Footer navigation={navigation} />
+            <Footer navigation={navigation} activeTab="Profile" />
         </View>
     );
 };

@@ -69,7 +69,7 @@ const Home = ({ navigation }) => {
                     <Post key={index} {...profile} />
                 ))}
             </ScrollView>
-            <Footer navigation={navigation}/>
+            <Footer navigation={navigation} activeTab="Home" />
         </View>
     );
 };

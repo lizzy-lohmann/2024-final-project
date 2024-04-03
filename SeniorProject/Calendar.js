@@ -71,7 +71,7 @@ const Calendar = ({ navigation }) => {
             <TouchableOpacity onPress={likedEvents} style ={styles.subFooter} >
                 <Text style={styles.subFooterText}>My Liked Events</Text>
             </TouchableOpacity>
-            <Footer navigation={navigation} />
+            <Footer navigation={navigation} activeTab="Calendar" />
         </View>
     );
 };
