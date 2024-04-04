@@ -40,39 +40,34 @@ const Calendar = ({ navigation }) => {
             .catch(error => console.error('Error fetching users:', error));
 
     }, []);
-    const handleSearch = () => {
-        // Implement your search functionality                                            JUSTIN/CHASE
-        console.log('Searching for:', searchQuery);
+
+
+    const handleSearch = async () => {
+        // Implement your search functionality
+        try {
+            let querySnapshot;
+
+            if (searchQuery.trim() === '') {
+                // If search query is empty, fetch all events
+                querySnapshot = await getDocs(colRef);
+            } else {
+                // Perform a fuzzy search against the Firestore collection
+                const startSearch = searchQuery.trim();
+                const endSearch = searchQuery.trim() + '\uf8ff'; // Unicode character '\uf8ff' is used to match all possible suffixes
+
+                querySnapshot = await getDocs(query(colRef, where("title", ">=", startSearch), where("title", "<=", endSearch)));
+            }
+
+            // Extract the data of each document
+            const eventData = querySnapshot.docs.map(doc => doc.data());
+
+            // Set the fetched event data into the events state
+            setEvents(eventData);
+        } catch (error) {
+            console.error('Error searching events:', error);
+        }
     };
 
-
-    // useEffect(() => {
-    //     // Fetch the profile data from your backend or local storage                       JUSTIN/CHASE
-    //     // static data bellow for example         change for collected data from database
-    //     const fetchedEvents = [
-    //         {
-    //             title: 'Readers Luncheon',
-    //             date: 'April 15th 2024',
-    //             time: '12:00pm',
-    //             description: 'Do you love to read? Come to Pollys Soups for a luncheon and meet other readers! Bring your favorite book! ',
-    //             RSVP: 'N/A',
-    //             instagram: 'https://www.instagram.com/bgogel02/',
-    //             facebook: 'N/A',
-    //             website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/BB'
-    //         },
-    //         {
-    //             title: 'Vues Social',
-    //             date: 'May 20th 2024',
-    //             time: '7-11pm',
-    //             description: 'Want to meet new people around your age? The Vue is hosting a social for young people in their 20s! Come gather have drinks and appetizers',
-    //             RSVP: 'www.rsvp.com',
-    //             instagram: 'https://www.instagram.com/lizzy_lohmann33/',
-    //             facebook: 'N/A',
-    //             website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/Lizzy',
-    //         },
-    //     ];
-    //     setEvents(fetchedEvents);
-    // }, []);
     const likedEvents = () => {
         setEvents(likedEvents);
     };
