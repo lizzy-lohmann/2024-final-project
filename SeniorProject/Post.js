@@ -26,7 +26,7 @@ const Post = ({ profileImage, name, age, pronouns, bio, profession, interests })
                 </TouchableOpacity>
                 <View style={styles.profileTextTwo}>
                     <Text>{profession}</Text>
-                    <Text>{interests.join(' ~ ')}</Text>
+                    <Text>{interests}</Text>
                 </View>
             </View>
         </View>

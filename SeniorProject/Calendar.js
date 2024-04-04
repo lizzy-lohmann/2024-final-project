@@ -37,7 +37,7 @@ const Calendar = ({ navigation }) => {
         };
 
         fetchEvents()
-            .catch(error => console.error('Error fetching users:', error));
+            .catch(error => console.error('Error fetching events:', error));
 
     }, []);
 

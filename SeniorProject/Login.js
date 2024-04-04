@@ -1,24 +1,42 @@
 import React, { useState } from 'react';
-import {View, Text, TextInput, Button, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Alert} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCX2PhLpEJX_n39XVit_bjCz-XFiQaIn-Y",
+    authDomain: "seniordesign-ae10f.firebaseapp.com",
+    projectId: "seniordesign-ae10f",
+    storageBucket: "seniordesign-ae10f.appspot.com",
+    messagingSenderId: "230961872715",
+    appId: "1:230961872715:web:6e830a80f457c42770b2ce",
+    measurementId: "G-H4KWB4XWGK",
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const colRef = collection(db, 'users');
 
 const Login = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-
-    const handleLogin = () => {
-        // Perform login logic
-        console.log('Login pressed with username:', username, 'and password:', password);
-        navigation.navigate('Home');
+    const handleLogin = async () => {
+        try {
+            const querySnapshot = await getDocs(query(colRef, where('username', '==', username), where('password', '==', password)));
+            if (!querySnapshot.empty) {
+                const user = querySnapshot.docs[0].data(); // Assuming username is unique
+                await AsyncStorage.setItem('username', username); // Store user information in AsyncStorage
+                navigation.navigate('Home');
+            } else {
+                Alert.alert('Invalid credentials', 'Username or password is incorrect.');
+            }
+        } catch (error) {
+            console.error('Error logging in:', error);
+        }
     };
-
-
-    const toggleShowPassword = () => {
-        setIsPasswordVisible(!isPasswordVisible);
-    };
-
 
     return (
         <View style={styles.container}>
@@ -33,17 +51,8 @@ const Login = ({ navigation }) => {
                 placeholder="Password"
                 value={password}
                 onChangeText={setPassword}
-                secureTextEntry={!isPasswordVisible}
+                secureTextEntry={true}
             />
-            <View style={styles.checkboxContainer}>
-                {/*
-                <Box
-                    value={isPasswordVisible}
-                    onValueChange={toggleShowPassword}
-                />
-                */}
-                <Text>Show Password</Text>
-            </View>
             <Button title="Login" onPress={handleLogin} />
             <View style={styles.signupPrompt}>
                 <Text>Don't have an account? </Text>
@@ -54,7 +63,6 @@ const Login = ({ navigation }) => {
         </View>
     );
 };
-
 
 const styles = StyleSheet.create({
     container: {
@@ -71,10 +79,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
     },
-    checkboxContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
     signupPrompt: {
         flexDirection: 'row',
         marginTop: 20,
@@ -84,6 +88,5 @@ const styles = StyleSheet.create({
         color: 'blue',
     },
 });
-
 
 export default Login;
