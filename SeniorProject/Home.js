@@ -22,7 +22,7 @@ const Home = ({ navigation }) => {
                 name: 'John Doe',
                 age: '30',
                 pronouns: 'He/Him',
-                bio: 'Bio for John',
+                bio: 'UniLink is an app designed for newly grads and young professionals who are moving to new places across the country to start their careers and the next chapter of their lives. It’s intended to make this transition easier by having a safe, easy way to meet other people the same age, in similar situations and see what is going on in their new area. Creating a new social circle can be intimidating in a new place and shouldn’t have to be limited',
                 profession: 'Software Engineer',
                 interests: ['Coding', 'Tech', 'Gaming', 'Reading'],
             },

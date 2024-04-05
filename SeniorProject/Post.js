@@ -85,6 +85,13 @@ const styles = StyleSheet.create({
     },
     bio: {
         marginTop: 10,
+        padding: 10,
+
+        //backgroundColor: '#d4beef',
+        borderWidth: 2,
+        borderColor: '#d4beef',
+        borderRadius: 10,
+
     },
     profileFooter: {
         marginTop: 8,

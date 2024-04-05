@@ -21,14 +21,38 @@ const Profile = ({ navigation }) => {
         // Code to save changes to MongoDB database goes here
         setIsEditing(false);
     };
+    const handleDelete = () =>
+    {
+
+    }
 
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity onPress={handleEdit} style={styles.headerButtonTwo}>
-                    <Text style={styles.headerButtonText}>{isEditing ? "Save" : "Edit"}</Text>
+                <TouchableOpacity onPress={handleEdit}>
+                    {isEditing ? (
+                        <Image
+                            style={styles.headerButtonImage} // Make sure to define this style
+                            source={require('./assets/save.png')} // Path to your save icon
+                        />
+                    ) : (
+                        <Image
+                            style={styles.headerButtonImage} // Make sure to define this style
+                            source={require('./assets/edit.png')} // Path to your edit icon
+                        />
+                    )}
                 </TouchableOpacity>
+                    {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
+                    {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
+                <TouchableOpacity onPress ={handleDelete}>
+                    <Image
+                        style={styles.headerButtonImage} // Make sure to define this style
+                        source={require('./assets/delete.png')} // Path to your edit icon
+                    />
+                    {/*<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by bsd - Flaticon</a>*/}
+                </TouchableOpacity>
+
             </View>
 
             <View style={styles.content}>

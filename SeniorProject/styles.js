@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 2,
         zIndex: 1000,
+
     },
     headerButton: {
         marginTop: 30,
@@ -29,13 +30,12 @@ const styles = StyleSheet.create({
         width: 25,
         alignItems: 'center'
     },
-    headerButtonTwo: {
-        marginTop: 35,
-        marginHorizontal: 10,
+    headerButtonImage: {
+        marginTop: 30,
+        marginHorizontal: 13,
         padding: 10,
-        borderWidth: 1,
-        borderRadius: 5,
-        alignItems: 'flex-end'
+        height: 40,
+        width: 40,
     },
     searchInput: {
         flex: 1,
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     footer: {
         height: 85,
         backgroundColor: '#ffffff',
-        //borderTopWidth: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -66,7 +65,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderTopWidth:2,
         borderColor: '#9d7ac7',
-        paddingVertical: 33,
+        //paddingVertical: 33,
+        height: 85,
+        width: 80,
     },
     footerButtonText: {
         color: '#815cac',
@@ -77,6 +78,11 @@ const styles = StyleSheet.create({
         borderColor: '#561d98',
         paddingVertical: 33,
         marginBottom: 0,
+    },
+    footerButtonImage: {
+        alignItems: 'flex-end',
+        height: 40,
+        width: 40,
     },
 
     //added for profile page

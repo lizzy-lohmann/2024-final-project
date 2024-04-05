@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
 
 const Footer = ({ navigation, activeTab }) => {
@@ -12,7 +12,11 @@ const Footer = ({ navigation, activeTab }) => {
                     activeTab === 'Home' && styles.activeFooterButton
                 ]}
             >
-                <Text style={styles.footerButtonText}>Home</Text>
+                <Image
+                    style={styles.footerButtonImage}
+                    source={require('./assets/home.png')}
+                />
+                {/*<a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a>*/}
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => navigation.navigate('Calendar')}
@@ -21,7 +25,11 @@ const Footer = ({ navigation, activeTab }) => {
                     activeTab === 'Calendar' && styles.activeFooterButton
                 ]}
             >
-                <Text style={styles.footerButtonText}>Calendar</Text>
+                <Image
+                    style={styles.footerButtonImage}
+                    source={require('./assets/calendar-check.png')}
+                />
+                {/*<a href="https://www.flaticon.com/free-icons/events" title="events icons">Events icons created by SeyfDesigner - Flaticon</a>*/}
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => navigation.navigate('Messaging')}
@@ -30,7 +38,11 @@ const Footer = ({ navigation, activeTab }) => {
                     activeTab === 'Messaging' && styles.activeFooterButton
                 ]}
             >
-                <Text style={styles.footerButtonText}>Message</Text>
+                <Image
+                    style={styles.footerButtonImage}
+                    source={require('./assets/message.png')}
+                />
+                {/*<a href="https://www.flaticon.com/free-icons/message" title="message icons">Message icons created by joalfa - Flaticon</a>*/}
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => navigation.navigate('Profile')}
@@ -39,7 +51,11 @@ const Footer = ({ navigation, activeTab }) => {
                     activeTab === 'Profile' && styles.activeFooterButton
                 ]}
             >
-                <Text style={styles.footerButtonText}>Profile</Text>
+                <Image
+                    style={styles.footerButtonImage}
+                    source={require('./assets/user.png')}
+                />
+                {/*<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon</a>*/}
             </TouchableOpacity>
         </View>
     );
