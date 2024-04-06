@@ -8,12 +8,11 @@ const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
         flex: 1,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#d3d1d1',
     },
     header: {
         height: 95,
         backgroundColor: '#815cac',
-        //justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
         elevation: 4,
@@ -21,44 +20,37 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 2,
         zIndex: 1000,
+
     },
     headerButton: {
-        marginTop: 35,
-        marginHorizontal: 10,
+        marginTop: 30,
+        marginHorizontal: 13,
         padding: 10,
-        borderWidth: 1,
-        borderRadius: 5,
+        height: 25,
+        width: 25,
+        alignItems: 'center'
     },
-    headerButtonTwo: {
-        marginTop: 35,
-        marginHorizontal: 10,
+    headerButtonImage: {
+        marginTop: 30,
+        marginHorizontal: 13,
         padding: 10,
-        borderWidth: 1,
-        borderRadius: 5,
-        alignItems: 'flex-end'
+        height: 40,
+        width: 40,
     },
-
-    headerButtonText: {
-        color: '#fbfafd',
-    },
-
     searchInput: {
         flex: 1,
         padding: 10,
-        marginHorizontal: 10,
+        marginLeft: 15,
         backgroundColor: '#FFFFFF',
         borderRadius: 5,
         marginTop: 35,
     },
     footer: {
         height: 85,
-        backgroundColor: '#815cac',
-        borderTopWidth: 1,
-        borderTopColor: '#561d98',
+        backgroundColor: '#ffffff',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        //position: 'absolute',
     },
     content: {
         flex: 1,
@@ -71,11 +63,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: '#561d98',
-        paddingVertical: 33,
+        borderTopWidth:2,
+        borderColor: '#9d7ac7',
+        //paddingVertical: 33,
+        height: 85,
+        width: 80,
     },
     footerButtonText: {
-        color: '#f6f3f3',
+        color: '#815cac',
+        textDecorationStyle: "double",
+    },
+    activeFooterButton: {
+        borderTopWidth:4,
+        borderColor: '#561d98',
+        paddingVertical: 33,
+        marginBottom: 0,
+    },
+    footerButtonImage: {
+        alignItems: 'flex-end',
+        height: 40,
+        width: 40,
     },
 
     //added for profile page
@@ -142,14 +149,6 @@ const styles = StyleSheet.create({
         borderColor: '#cccccc',
         backgroundColor: '#fff',
       },
-    avatarContainer: {
-        marginRight: 10,
-    },
-    avatar: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-    },
     chatDetails: {
         flex: 1,
         justifyContent: 'center',
@@ -224,5 +223,4 @@ const styles = StyleSheet.create({
     },
     
 });
-
 export default styles;
