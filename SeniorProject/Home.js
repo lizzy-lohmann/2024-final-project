@@ -66,9 +66,10 @@ const Home = ({ navigation }) => {
             </View>
             <ScrollView style={styles.container}>
                 {profiles.map((profile, index) => (
-                    <Post key={index} {...profile} />
+                    <Post key={index} {...profile} navigation={navigation}/>
                 ))}
             </ScrollView>
+
             <Footer navigation={navigation} activeTab="Home" />
         </View>
     );

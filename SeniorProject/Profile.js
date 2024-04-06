@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
+import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from "./Footer";
 
@@ -21,15 +22,33 @@ const Profile = ({ navigation }) => {
         // Code to save changes to MongoDB database goes here
         setIsEditing(false);
     };
-    const handleDelete = () =>
-    {
-
+    const confirmDelete = () => {
+        Alert.alert(
+            'Delete Profile',
+            'Are you sure you want to delete your profile?',
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                },
+                {
+                    text: 'Yes',
+                    onPress: () => deleteProfile()// Here you would call the function to delete the profile
+                },
+            ],
+            { cancelable: false }
+        );
+    };
+    const deleteProfile = () => {
+        //add code to delete profile than go back to login screen
     }
+
 
 
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
+            <View style={styles.headerProfile}>
                 <TouchableOpacity onPress={handleEdit}>
                     {isEditing ? (
                         <Image
@@ -45,9 +64,9 @@ const Profile = ({ navigation }) => {
                 </TouchableOpacity>
                     {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
                     {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
-                <TouchableOpacity onPress ={handleDelete}>
+                <TouchableOpacity onPress ={confirmDelete}>
                     <Image
-                        style={styles.headerButtonImage} // Make sure to define this style
+                        style={styles.headerButtonImageTwo} // Make sure to define this style
                         source={require('./assets/delete.png')} // Path to your edit icon
                     />
                     {/*<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by bsd - Flaticon</a>*/}

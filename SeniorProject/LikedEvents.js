@@ -4,7 +4,7 @@ import  styles  from './styles';
 import Footer from "./Footer";
 import Events from "./Events";
 
-const Calendar = ({ navigation }) => {
+const LikedEvents = ({ navigation }) => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = () => {
@@ -41,11 +41,9 @@ const Calendar = ({ navigation }) => {
         ];
         setEvents(fetchedEvents);
     }, []);
-
-    const goToLikedEvents = () => {
-        navigation.navigate('LikedEvents');
+    const goToEvents = () => {
+        navigation.navigate('Calendar');
     };
-
 
     return (
         <View style={styles.fullScreen}>
@@ -70,11 +68,11 @@ const Calendar = ({ navigation }) => {
                     <Events key={index} {...event} />
                 ))}
             </ScrollView>
-            <TouchableOpacity onPress={goToLikedEvents} style={styles.subFooter}>
-                <Text style={styles.subFooterText}>My Liked Events</Text>
+            <TouchableOpacity onPress={goToEvents} style ={styles.subFooter} >
+                <Text style={styles.subFooterText}>All Events</Text>
             </TouchableOpacity>
             <Footer navigation={navigation} activeTab="Calendar" />
         </View>
     );
 };
-export default Calendar;
+export default LikedEvents;
