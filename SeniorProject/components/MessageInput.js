@@ -27,11 +27,12 @@ const MessageInput = ({ onSend }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    padding: 10,
+    padding: 2,
   },
   input: {
     flex: 1,
-    padding: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
     backgroundColor: '#f7f7f7',
     borderRadius: 20,
   },

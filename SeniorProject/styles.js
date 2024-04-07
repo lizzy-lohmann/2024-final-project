@@ -54,6 +54,13 @@ const styles = StyleSheet.create({
         height: 35,
         width: 35,
     },
+    headerTitle: {
+        fontWeight: 'bold',
+        fontSize: 24,
+        marginTop: 30,
+        marginLeft: 8,
+
+    },
     searchInput: {
         flex: 1,
         padding: 10,
@@ -161,12 +168,24 @@ const styles = StyleSheet.create({
     // Styles for the chat list items
     chatItem: {
         flexDirection: 'row',
-        padding: 10,
+        padding: 5,
         alignItems: 'center',
         borderBottomWidth: 1,
         borderColor: '#cccccc',
         backgroundColor: '#fff',
+        height: 105,
       },
+    messageAvatar: {
+        width: 60,
+        height: 65,
+        borderRadius: 65,
+    },
+    headerSlogan: {
+        fontWeight: 'bold',
+        fontSize: 13,
+        marginLeft: 8,
+        color: '#561d98',
+    },
     chatDetails: {
         flex: 1,
         justifyContent: 'center',
@@ -219,18 +238,20 @@ const styles = StyleSheet.create({
     myMessage: {
         marginVertical: 5,
         padding: 10,
-        backgroundColor: '#0078D7', // A shade of blue
+        backgroundColor: '#b28edc',
         alignSelf: 'flex-end',
         borderRadius: 15,
         maxWidth: '80%',
+        marginRight: 15,
     },
     theirMessage: {
         marginVertical: 5,
         padding: 10,
-        backgroundColor: '#E1E1E1', // Light gray
+        backgroundColor: '#757474',
         alignSelf: 'flex-start',
         borderRadius: 15,
         maxWidth: '80%',
+        marginLeft: 15,
     },
     messageText: {
         fontSize: 16,
