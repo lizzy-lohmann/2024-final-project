@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SeniorProject/LikedEvents.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SeniorProject/assets/likedStar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/assets/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/assets/star.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/styles.js" afterDir="false" />
+    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="added functionality to icons">
+      <change beforePath="$PROJECT_DIR$/SeniorProject/ChatDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/ChatDetailScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.bin/detect-libc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/detect-libc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.bin/envinfo" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/envinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.bin/esparse" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/esparse" afterDir="false" />
@@ -255,7 +246,80 @@
       <change beforePath="$PROJECT_DIR$/node_modules/@react-native/codegen/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@react-native/codegen/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@react-native/community-cli-plugin/dist/utils/loadMetroConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@react-native/community-cli-plugin/dist/utils/loadMetroConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@react-native/community-cli-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@react-native/community-cli-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/createDevMiddleware.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/createDevMiddleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/createDevMiddleware.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/index.flow.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/index.flow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/index.flow.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/index.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/Device.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/Device.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/Device.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/DeviceEventReporter.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/DeviceEventReporter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/DeviceEventReporter.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/InspectorProxy.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/InspectorProxy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/InspectorProxy.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/types.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/inspector-proxy/types.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/middleware/deprecated_openFlipperMiddleware.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/middleware/deprecated_openFlipperMiddleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/middleware/deprecated_openFlipperMiddleware.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/middleware/openDebuggerMiddleware.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/middleware/openDebuggerMiddleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/middleware/openDebuggerMiddleware.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/BrowserLauncher.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/BrowserLauncher.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/BrowserLauncher.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/EventReporter.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/EventReporter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/EventReporter.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/Experiments.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/Experiments.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/Experiments.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/Logger.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/Logger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/types/Logger.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/utils/DefaultBrowserLauncher.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/utils/DefaultBrowserLauncher.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/utils/DefaultBrowserLauncher.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/utils/getDevToolsFrontendUrl.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/utils/getDevToolsFrontendUrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/dist/utils/getDevToolsFrontendUrl.js.flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/.coveralls.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/node.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/src/browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/src/debug.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/src/inspector-log.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/debug/src/node.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/ms/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/ms/license.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/ms/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/ms/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/open/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/open/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/open/license" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/open/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/open/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/node_modules/open/xdg-open" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@react-native/dev-middleware/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@react-native/metro-babel-transformer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@react-native/metro-babel-transformer/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@react-navigation/core/lib/commonjs/BaseNavigationContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@react-navigation/core/lib/commonjs/BaseNavigationContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@react-navigation/core/lib/commonjs/BaseNavigationContainer.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@react-navigation/core/lib/commonjs/BaseNavigationContainer.js.map" afterDir="false" />
@@ -1897,11 +1961,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712427757051</updated>
-      <workItem from="1712427759661" duration="5074000" />
+      <workItem from="1712427759661" duration="7050000" />
     </task>
+    <task id="LOCAL-00001" summary="added functionality to icons">
+      <option name="closed" value="true" />
+      <created>1712433421790</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712433421790</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added functionality to icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="added functionality to icons" />
   </component>
 </project>
