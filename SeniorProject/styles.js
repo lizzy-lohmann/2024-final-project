@@ -15,16 +15,28 @@ const styles = StyleSheet.create({
         backgroundColor: '#815cac',
         alignItems: 'center',
         flexDirection: 'row',
+        padding: 10,
         elevation: 4,
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 2,
         zIndex: 1000,
-
+    },
+    headerProfile: {
+        height: 95,
+        backgroundColor: '#815cac',
+        flexDirection: 'row',
+        justifyContent: 'space-between', // This will spread your items on both ends
+        paddingHorizontal: 10, // Add some padding if necessary
+        alignItems: 'center',
+        elevation: 4,
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+        zIndex: 1000,
     },
     headerButton: {
         marginTop: 30,
-        marginHorizontal: 13,
         padding: 10,
         height: 25,
         width: 25,
@@ -32,15 +44,21 @@ const styles = StyleSheet.create({
     },
     headerButtonImage: {
         marginTop: 30,
-        marginHorizontal: 13,
         padding: 10,
         height: 40,
         width: 40,
+    },
+    headerButtonImageTwo: {
+        marginTop: 30,
+        padding: 0,
+        height: 35,
+        width: 35,
     },
     searchInput: {
         flex: 1,
         padding: 10,
         marginLeft: 15,
+        marginRight: 5,
         backgroundColor: '#FFFFFF',
         borderRadius: 5,
         marginTop: 35,

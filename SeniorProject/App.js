@@ -8,6 +8,8 @@ import MessagingScreen from './Message';
 import Login from './Login';
 import SignUp from './SignUp';
 import ChatDetailScreen from './ChatDetailScreen';
+import LikedEvents from './LikedEvents';
+import post from "./Post";
 
 
 const Stack = createNativeStackNavigator();
@@ -25,6 +27,8 @@ function App() {
                 <Stack.Screen name="Calendar" component={CalendarScreen} />
                 <Stack.Screen name="Messaging" component={MessagingScreen} />
                 <Stack.Screen name="ChatDetailScreen" component={ChatDetailScreen} />
+                <Stack.Screen name="LikedEvents" component={LikedEvents} />
+
             </Stack.Navigator>
         </NavigationContainer>
     );
