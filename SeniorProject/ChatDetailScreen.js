@@ -1,7 +1,7 @@
 // ChatDetailScreen.js
 
 import React, { useState } from 'react';
-import {View, FlatList, TextInput, Button, Text, StyleSheet, Image, TouchableOpacity, Alert, KeyboardAvoidingView, Platform} from 'react-native';
+import {View, FlatList, TextInput, Button, Text, Image, TouchableOpacity, Alert, KeyboardAvoidingView, Platform} from 'react-native';
 import styles from './styles';
 
 const ChatDetailScreen = ({ route, navigation }) => {

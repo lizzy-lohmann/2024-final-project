@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     },
     avatarContainer: {
         alignItems: 'center',
-        marginTop: 80,
+        marginTop: 20,
     },
     avatar: {
         width: 120,
@@ -152,6 +152,25 @@ const styles = StyleSheet.create({
         backgroundColor: '#cccccc',
         marginBottom: 5,
     },
+    pickerContainer: {
+        borderWidth: 1,
+        borderColor: '#dbc9f1',
+        borderRadius: 12,
+        marginHorizontal: 12, // Adjust as necessary to match your layout
+        height: 45,
+        justifyContent: 'center',
+        overflow: 'hidden',
+        marginBottom: 10,
+        marginTop: 5,
+    },
+    picker: {
+        height: undefined,
+        color: '#f6f3f3',
+        backgroundColor: 'transparent',
+        justifyContent: 'center',
+    },
+
+
 
     //added for calendar
     subFooter: {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, Image, ScrollView,KeyboardAvoidingView,  Platform} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from "./Footer";
@@ -7,6 +8,7 @@ import Footer from "./Footer";
 const Profile = ({ navigation }) => {
 
     const [isEditing, setIsEditing] = useState(false);
+
 
     const [profile, setProfile] = useState({
         name: '',
@@ -18,6 +20,7 @@ const Profile = ({ navigation }) => {
         location: '',
         picture: '',
     });
+    const [selectedCity, setSelectedCity] = useState(profile.location);
 
     useEffect(() => {
         // Fetch the user's data from the database when the component mounts and save it to setProfile, sample below
@@ -26,13 +29,21 @@ const Profile = ({ navigation }) => {
         //             setProfile(data);
         //           })
     }, []);
+    const handleLocationChange = (itemValue, itemIndex) => {
+        // Set the selected city and also update the profile's location
+        setSelectedCity(itemValue);
+        handleInputChange('location', itemValue);
+    };
 
     const handleEdit = () => {
              setIsEditing(!isEditing);
          };
 
     const handleInputChange = (name, value) => {
-
+        setProfile(prevState => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
     const saveChanges = () => {
@@ -68,6 +79,10 @@ const Profile = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={{ flex: 1 }}
+            >
             <View style={styles.headerProfile}>
                 <TouchableOpacity onPress={handleEdit}>
                     {isEditing ? (
@@ -95,7 +110,7 @@ const Profile = ({ navigation }) => {
             </View>
 
 
-            <View style={styles.content}>
+            <ScrollView style={styles.container}>
                 <View style={styles.avatarContainer}>
                     <View style={styles.avatar}>
                         <Image
@@ -203,22 +218,31 @@ const Profile = ({ navigation }) => {
                 </View>
 
                 <View style={styles.fieldContainer}>
-                    <Text style={styles.fieldTitle}>Location:</Text>
-                    <View style={[styles.textBox, isEditing && styles.editTextBox]}>
-                        {isEditing ? (
-                            <TextInput
-                                style={styles.input}
-                                value={profile.location}
-                                onChangeText={(value) => handleInputChange('location', value)}
-                            />
-                        ) : (
+                    <Text style={styles.fieldTitle}>Location: (Scroll)</Text>
+                    {isEditing ? (
+                        <View style={styles.pickerContainer}>
+                            <Picker
+                                selectedValue={selectedCity}
+                                onValueChange={handleLocationChange}
+                                style={styles.picker}
+                            >
+                                <Picker.Item label="Des Moines, IA" value="Des Moines, IA" />
+                                <Picker.Item label="Chicago, IL" value="Chicago, IL" />
+                                <Picker.Item label="Minneapolis, MN" value="Minneapolis, MN" />
+                            </Picker>
+                        </View>
+                    ) : (
+                        <View style={styles.textBox}>
                             <Text style={styles.fieldText}>{profile.location}</Text>
-                        )}
-                    </View>
+                        </View>
+                    )}
                 </View>
-            </View>
+            </ScrollView>
+            </KeyboardAvoidingView>
             <Footer navigation={navigation} activeTab="Profile" />
         </View>
+
+
     );
 };
 
