@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 
 const Events = ({ title, date, time, description, RSVP, instagram, facebook, website }) => {
@@ -7,6 +7,11 @@ const Events = ({ title, date, time, description, RSVP, instagram, facebook, web
     };
     const openLink = (url) => {
         Linking.openURL(url).catch(err => console.error("Couldn't load page", err));
+    };
+    const [liked, setLiked] = useState(false);
+    const handleLikePress = () => {
+        setLiked(!liked);
+        // Here you would also handle the logic to update the like status in your backend/database         JUSTIN/CHASE
     };
 
     return (
@@ -20,13 +25,14 @@ const Events = ({ title, date, time, description, RSVP, instagram, facebook, web
             </View>
             <Text style={styles.description}>{description}</Text>
             <View style={styles.eventFooter}>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={handleLikePress} style={styles.likeButton}>
                     <Image
                         style={styles.likeButton}
-                        source={require('./assets/star.png')}
+                        source={liked ? require('./assets/likedStar.png') : require('./assets/star.png')}
                     />
-                    {/* <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Rakib Hassan Rahim - Flaticon</a> */}
                 </TouchableOpacity>
+                {/* <a href="https://www.flaticon.com/free-icons/impression-rate" title="impression rate icons">Impression rate icons created by Smashicons - Flaticon</a> */}
+                {/*<a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Smashicons - Flaticon</a>*/}
                 <TouchableOpacity onPress={handlePressRSVP}>
                     <Text style={styles.rsvp}>RSVP</Text>
                 </TouchableOpacity>

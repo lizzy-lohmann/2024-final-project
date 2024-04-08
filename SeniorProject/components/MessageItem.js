@@ -12,15 +12,14 @@ const MessageItem = ({ message }) => {
 
 const styles = StyleSheet.create({
   messageBubble: {
-    padding: 10,
+    padding: 8,
     margin: 10,
     backgroundColor: '#e5e5ea',
-    borderRadius: 20,
+    borderRadius: 15,
   },
   timestamp: {
     fontSize: 10,
     color: '#999',
-    marginTop: 5,
     alignSelf: 'flex-end',
   },
 });

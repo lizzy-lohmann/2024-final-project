@@ -1,27 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
 import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from "./Footer";
 
 const Profile = ({ navigation }) => {
+
     const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState("John Doe");
-    const [pronouns, setPronouns] = useState("He/Him");
-    const [birthday, setBirthday] = useState("January 1, 1990");
-    const [profession, setProfession] = useState("Software Engineer");
-    const [interests, setInterests] = useState("Coding, Reading, Hiking");
-    const [aboutMe, setAboutMe] = useState("I am a software developer passionate about building cool apps!");
-    const [location, setLocation] = useState("New York, NY");
+
+    const [profile, setProfile] = useState({
+        name: '',
+        pronouns: '',
+        birthday: '',
+        profession: '',
+        interests: '',
+        aboutMe: '',
+        location: '',
+        picture: '',
+    });
+
+    useEffect(() => {
+        // Fetch the user's data from the database when the component mounts and save it to setProfile, sample below
+        //userService.getProfileData()
+        //           .then(data => {
+        //             setProfile(data);
+        //           })
+    }, []);
 
     const handleEdit = () => {
-        setIsEditing(!isEditing);
+             setIsEditing(!isEditing);
+         };
+
+    const handleInputChange = (name, value) => {
+
     };
 
     const saveChanges = () => {
-        // Code to save changes to MongoDB database goes here
         setIsEditing(false);
+
     };
+
+
+
     const confirmDelete = () => {
         Alert.alert(
             'Delete Profile',
@@ -52,13 +72,13 @@ const Profile = ({ navigation }) => {
                 <TouchableOpacity onPress={handleEdit}>
                     {isEditing ? (
                         <Image
-                            style={styles.headerButtonImage} // Make sure to define this style
-                            source={require('./assets/save.png')} // Path to your save icon
+                            style={styles.headerButtonImage}
+                            source={require('./assets/save.png')}
                         />
                     ) : (
                         <Image
-                            style={styles.headerButtonImage} // Make sure to define this style
-                            source={require('./assets/edit.png')} // Path to your edit icon
+                            style={styles.headerButtonImage}
+                            source={require('./assets/edit.png')}
                         />
                     )}
                 </TouchableOpacity>
@@ -74,14 +94,13 @@ const Profile = ({ navigation }) => {
 
             </View>
 
+
             <View style={styles.content}>
-
-
                 <View style={styles.avatarContainer}>
                     <View style={styles.avatar}>
                         <Image
                             style={styles.avatar}
-                            source={{/*     image source */}}
+                            source={require('./assets/Anna.jpeg')}
                         />
                     </View>
 
@@ -96,11 +115,11 @@ const Profile = ({ navigation }) => {
                         {isEditing ? (
                             <TextInput
                                 style={styles.input}
-                                value={name}
-                                onChangeText={setName}
+                                value={profile.name}
+                                onChangeText={(value) => handleInputChange('name', value)}
                             />
                         ) : (
-                            <Text style={styles.fieldText}>{name}</Text>
+                            <Text style={styles.fieldText}>{profile.name}</Text>
                         )}
                     </View>
                 </View>
@@ -111,11 +130,11 @@ const Profile = ({ navigation }) => {
                         {isEditing ? (
                             <TextInput
                                 style={styles.input}
-                                value={pronouns}
-                                onChangeText={setPronouns}
+                                value={profile.pronouns}
+                                onChangeText={(value) => handleInputChange('pronouns', value)}
                             />
                         ) : (
-                            <Text style={styles.fieldText}>{pronouns}</Text>
+                            <Text style={styles.fieldText}>{profile.pronouns}</Text>
                         )}
                     </View>
                 </View>
@@ -126,11 +145,11 @@ const Profile = ({ navigation }) => {
                         {isEditing ? (
                             <TextInput
                                 style={styles.input}
-                                value={birthday}
-                                onChangeText={setBirthday}
+                                value={profile.birthday}
+                                onChangeText={(value) => handleInputChange('birthday', value)}
                             />
                         ) : (
-                            <Text style={styles.fieldText}>{birthday}</Text>
+                            <Text style={styles.fieldText}>{profile.birthday}</Text>
                         )}
                     </View>
                 </View>
@@ -141,11 +160,11 @@ const Profile = ({ navigation }) => {
                         {isEditing ? (
                             <TextInput
                                 style={styles.input}
-                                value={profession}
-                                onChangeText={setProfession}
+                                value={profile.profession}
+                                onChangeText={(value) => handleInputChange('profession', value)}
                             />
                         ) : (
-                            <Text style={styles.fieldText}>{profession}</Text>
+                            <Text style={styles.fieldText}>{profile.profession}</Text>
                         )}
                     </View>
                 </View>
@@ -157,11 +176,11 @@ const Profile = ({ navigation }) => {
                         {isEditing ? (
                             <TextInput
                                 style={styles.input}
-                                value={aboutMe}
-                                onChangeText={setAboutMe}
+                                value={profile.aboutMe}
+                                onChangeText={(value) => handleInputChange('aboutMe', value)}
                             />
                         ) : (
-                            <Text style={styles.fieldText}>{aboutMe}</Text>
+                            <Text style={styles.fieldText}>{profile.aboutMe}</Text>
                         )}
                     </View>
                 </View>
@@ -174,11 +193,11 @@ const Profile = ({ navigation }) => {
                         {isEditing ? (
                             <TextInput
                                 style={styles.input}
-                                value={interests}
-                                onChangeText={setInterests}
+                                value={profile.interests}
+                                onChangeText={(value) => handleInputChange('interests', value)}
                             />
                         ) : (
-                            <Text style={styles.fieldText}>{interests}</Text>
+                            <Text style={styles.fieldText}>{profile.interests}</Text>
                         )}
                     </View>
                 </View>
@@ -189,18 +208,15 @@ const Profile = ({ navigation }) => {
                         {isEditing ? (
                             <TextInput
                                 style={styles.input}
-                                value={location}
-                                onChangeText={setLocation}
+                                value={profile.location}
+                                onChangeText={(value) => handleInputChange('location', value)}
                             />
                         ) : (
-                            <Text style={styles.fieldText}>{location}</Text>
+                            <Text style={styles.fieldText}>{profile.location}</Text>
                         )}
                     </View>
                 </View>
-
             </View>
-
-            {/* Custom Footer */}
             <Footer navigation={navigation} activeTab="Profile" />
         </View>
     );
