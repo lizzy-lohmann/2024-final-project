@@ -44,7 +44,7 @@ const Events = ({ title, date, time, description, RSVP, instagram, facebook, web
                         <Text style={styles.socialText}>Facebook</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => openLink(website)}>
-                        <Text style={styles.socialText}>{website}</Text>
+                        <Text style={styles.socialText}>Website</Text>
                     </TouchableOpacity>
                 </View>
             </View>

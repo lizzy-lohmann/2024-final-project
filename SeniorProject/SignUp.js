@@ -147,7 +147,7 @@ const SignUp = ({ navigation }) => {
             />
             <TextInput
                 style={styles.input}
-                placeholder="Birthday"
+                placeholder="Birthday (January 1, 2000)"
                 value={birthday}
                 onChangeText={setBirthday}
             />
@@ -236,15 +236,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         borderRadius: 5,
-        marginHorizontal: 12, // Adjust as necessary to match your layout
         justifyContent: 'center',
         overflow: 'hidden',
-        marginBottom: 10,
-        marginTop: 5,
     },
     picker: {
         height: undefined,
-        //color: '#f6f3f3',
         backgroundColor: 'transparent',
         justifyContent: 'center',
     },

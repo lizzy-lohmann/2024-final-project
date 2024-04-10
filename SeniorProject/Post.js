@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Post = ({ profileImage, name, age, pronouns, bio, profession, interests, navigation }) => {
+const Post = ({ profileImage, name, birthday, pronouns, aboutMe, profession, interests, navigation }) => {
 
     const [liked, setLiked] = useState(false);
 
@@ -14,6 +14,12 @@ const Post = ({ profileImage, name, age, pronouns, bio, profession, interests, n
         navigation.navigate('Messaging');
     };
 
+    function getAgeFromBirthday(birthdayString) {
+        const currentYear = new Date().getFullYear();
+        const birthYear = parseInt(birthdayString.slice(-4), 10);
+        return currentYear - birthYear;
+    }
+
     return (
         <View style={styles.postContainer}>
             <View style={styles.profileHeader}>
@@ -22,7 +28,7 @@ const Post = ({ profileImage, name, age, pronouns, bio, profession, interests, n
                     source={{ uri: profileImage }}
                 />
                 <View style={styles.profileText}>
-                    <Text style={styles.name}>{name}, {age}</Text>
+                    <Text style={styles.name}>{name}, {getAgeFromBirthday(birthday)}</Text>
                     <Text>{pronouns}</Text>
                 </View>
                 <View style={styles.message}>
@@ -35,7 +41,7 @@ const Post = ({ profileImage, name, age, pronouns, bio, profession, interests, n
                     </TouchableOpacity>
                 </View>
             </View>
-            <Text style={styles.bio}>{bio}</Text>
+            <Text style={styles.bio}>{aboutMe}</Text>
             <View style={styles.profileFooter}>
                 <TouchableOpacity onPress={handleLikePress} style={styles.likeButton}>
                     <Image
@@ -48,7 +54,7 @@ const Post = ({ profileImage, name, age, pronouns, bio, profession, interests, n
 
                 <View style={styles.profileTextTwo}>
                     <Text>{profession}</Text>
-                    <Text>{interests}</Text>
+                    <Text>{interests.replaceAll(', ', ' ~ ')}</Text>
                 </View>
             </View>
         </View>

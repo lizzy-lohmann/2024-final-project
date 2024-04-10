@@ -11,6 +11,7 @@ const Profile = ({ navigation }) => {
 
     const [userData, setUserData] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
+    const [selectedCity, setSelectedCity] = useState('');
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -25,6 +26,7 @@ const Profile = ({ navigation }) => {
                         const userData = querySnapshot.docs[0].data();
                         setUserData(userData);
                     }
+                    setSelectedCity(userData.location);
                 }
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -32,8 +34,6 @@ const Profile = ({ navigation }) => {
         };
         fetchUserData();
     }, []);
-
-    const [selectedCity, setSelectedCity] = useState(userData.location);
 
     const handleLocationChange = (itemValue) => {
         setSelectedCity(itemValue);
@@ -45,6 +45,7 @@ const Profile = ({ navigation }) => {
          };
 
     const handleInputChange = (name, value) => {
+        {/*                                                                              STILL NEED TO SAVE TO DATABSE*/}
         setUserData(prevState => ({
             ...prevState,
             [name]: value,
@@ -82,7 +83,7 @@ const Profile = ({ navigation }) => {
 
 
     return (
-            <View style={styles.content}>
+            <View style={styles.container}>
                 <View style={styles.headerProfile}>
                     <TouchableOpacity onPress={handleEdit}>
                         {isEditing ? (

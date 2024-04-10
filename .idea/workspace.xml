@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="added functionality to icons">
+    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="worked on fixing merge and sign up page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Events.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +75,7 @@
       <workItem from="1712427759661" duration="7050000" />
       <workItem from="1712513617443" duration="8614000" />
       <workItem from="1712575065411" duration="8738000" />
-      <workItem from="1712774416313" duration="2720000" />
+      <workItem from="1712774416313" duration="6895000" />
     </task>
     <task id="LOCAL-00001" summary="added functionality to icons">
       <option name="closed" value="true" />
@@ -87,7 +85,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712433421790</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="worked on fixing merge and sign up page">
+      <option name="closed" value="true" />
+      <created>1712777581351</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712777581351</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +101,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added functionality to icons" />
-    <option name="LAST_COMMIT_MESSAGE" value="added functionality to icons" />
+    <MESSAGE value="worked on fixing merge and sign up page" />
+    <option name="LAST_COMMIT_MESSAGE" value="worked on fixing merge and sign up page" />
   </component>
 </project>
