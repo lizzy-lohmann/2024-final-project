@@ -40,6 +40,8 @@ const Login = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.name}>UniLink</Text>
+            <Text style={styles.slogin}>The App That Brings Us Together</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Username"
@@ -60,12 +62,14 @@ const Login = ({ navigation }) => {
                     <Text style={styles.signupText}>Sign up</Text>
                 </TouchableOpacity>
             </View>
+
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
+        flexGrow: 1,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -87,6 +91,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'blue',
     },
+    name: {
+        fontWeight: 'bold',
+        color: '#561d98',
+        fontSize: 48,
+    },
+    slogin: {
+        fontWeight: 'bold',
+        color: '#815cac',
+        fontSize: 20,
+    }
 });
 
 export default Login;

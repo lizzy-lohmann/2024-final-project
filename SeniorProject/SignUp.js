@@ -96,6 +96,8 @@ const SignUp = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.name}>UniLink</Text>
+            <Text style={styles.slogin}>The App That Brings Us Together</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Username"
@@ -198,5 +200,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'blue',
     },
+    name: {
+        fontWeight: 'bold',
+        color: '#561d98',
+        fontSize: 48,
+    },
+    slogin: {
+        fontWeight: 'bold',
+        color: '#815cac',
+        fontSize: 20,
+    }
 });
 export default SignUp;
