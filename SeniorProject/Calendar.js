@@ -3,47 +3,78 @@ import {View, Text, TouchableOpacity, TextInput, ScrollView, Image} from 'react-
 import  styles  from './styles';
 import Footer from "./Footer";
 import Events from "./Events";
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCX2PhLpEJX_n39XVit_bjCz-XFiQaIn-Y",
+    authDomain: "seniordesign-ae10f.firebaseapp.com",
+    projectId: "seniordesign-ae10f",
+    storageBucket: "seniordesign-ae10f.appspot.com",
+    messagingSenderId: "230961872715",
+    appId: "1:230961872715:web:6e830a80f457c42770b2ce",
+    measurementId: "G-H4KWB4XWGK",
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const colRef = collection(db, "events");
 
 const Calendar = ({ navigation }) => {
     const [searchQuery, setSearchQuery] = useState('');
-
-    const handleSearch = () => {
-        // Implement your search functionality                                            JUSTIN/CHASE
-        console.log('Searching for:', searchQuery);
-    };
-
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        // Fetch the profile data from your backend or local storage                       JUSTIN/CHASE
-        // static data bellow for example         change for collected data from database
-        const fetchedEvents = [
-            {
-                title: 'Readers Luncheon',
-                date: 'April 15th 2024',
-                time: '12:00pm',
-                description: 'Do you love to read? Come to Pollys Soups for a luncheon and meet other readers! Bring your favorite book! ',
-                RSVP: 'N/A',
-                instagram: 'https://www.instagram.com/bgogel02/',
-                facebook: 'N/A',
-                website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/BB'
-            },
-            {
-                title: 'Vues Social',
-                date: 'May 20th 2024',
-                time: '7-11pm',
-                description: 'Want to meet new people around your age? The Vue is hosting a social for young people in their 20s! Come gather have drinks and appetizers',
-                RSVP: 'www.rsvp.com',
-                instagram: 'https://www.instagram.com/lizzy_lohmann33/',
-                facebook: 'N/A',
-                website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/Lizzy',
-            },
-        ];
-        setEvents(fetchedEvents);
+        const fetchEvents = async () => {
+            try {
+                const querySnapshot = await getDocs(colRef);
+                const eventData = querySnapshot.docs.map((doc) => doc.data());
+                setEvents(eventData);
+            } catch (error) {
+                console.error('Error fetching events:', error);
+            }
+        };
+
+        fetchEvents()
+            .catch(error => console.error('Error fetching events:', error));
+
     }, []);
+
+
+
+    const handleSearch = async () => {
+        // Implement your search functionality
+        try {
+            let querySnapshot;
+
+            if (searchQuery.trim() === '') {
+                // If search query is empty, fetch all events
+                querySnapshot = await getDocs(colRef);
+            } else {
+                // Perform a fuzzy search against the Firestore collection
+                const startSearch = searchQuery.trim();
+                const endSearch = searchQuery.trim() + '\uf8ff'; // Unicode character '\uf8ff' is used to match all possible suffixes
+
+                querySnapshot = await getDocs(query(colRef, where("title", ">=", startSearch), where("title", "<=", endSearch)));
+            }
+
+            // Extract the data of each document
+            const eventData = querySnapshot.docs.map(doc => doc.data());
+
+            // Set the fetched event data into the events state
+            setEvents(eventData);
+        } catch (error) {
+            console.error('Error searching events:', error);
+        }
+    };
+
+    const likedEvents = () => {
+        setEvents(likedEvents);
 
     const goToLikedEvents = () => {
         navigation.navigate('LikedEvents');
+
     };
 
 
