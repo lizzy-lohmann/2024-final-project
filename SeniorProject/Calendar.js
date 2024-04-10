@@ -44,7 +44,6 @@ const Calendar = ({ navigation }) => {
 
 
     const handleSearch = async () => {
-        // Implement your search functionality
         try {
             let querySnapshot;
 
@@ -68,9 +67,6 @@ const Calendar = ({ navigation }) => {
             console.error('Error searching events:', error);
         }
     };
-
-    const likedEvents = () => {
-        setEvents(likedEvents);
 
     const goToLikedEvents = () => {
         navigation.navigate('LikedEvents');

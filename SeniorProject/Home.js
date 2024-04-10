@@ -1,6 +1,6 @@
 
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, TextInput, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, ScrollView, Image} from 'react-native';
 import  styles  from './styles';
 import Footer from "./Footer";
 import { initializeApp } from 'firebase/app';
@@ -41,13 +41,12 @@ const Home = ({ navigation }) => {
 
         fetchUsers()
             .catch(error => console.error('Error fetching users:', error));
-        setProfiles(fetchedProfiles);
+
 
     }, []);
 
 
     const handleSearch = async () => {
-        // Implement your search functionality
         try {
             let querySnapshot;
 
@@ -66,7 +65,7 @@ const Home = ({ navigation }) => {
             const eventData = querySnapshot.docs.map(doc => doc.data());
 
             // Set the fetched event data into the events state
-            setEvents(eventData);
+            setProfiles(eventData);
         } catch (error) {
             console.error('Error searching events:', error);
         }

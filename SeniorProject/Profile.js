@@ -30,14 +30,12 @@ const Profile = ({ navigation }) => {
                 console.error('Error fetching user data:', error);
             }
         };
-
         fetchUserData();
     }, []);
 
     const [selectedCity, setSelectedCity] = useState(userData.location);
 
-    const handleLocationChange = (itemValue, itemIndex) => {
-        // Set the selected city and also update the profile's location
+    const handleLocationChange = (itemValue) => {
         setSelectedCity(itemValue);
         handleInputChange('location', itemValue);
     };
@@ -47,7 +45,7 @@ const Profile = ({ navigation }) => {
          };
 
     const handleInputChange = (name, value) => {
-        setProfile(prevState => ({
+        setUserData(prevState => ({
             ...prevState,
             [name]: value,
         }));
@@ -84,51 +82,51 @@ const Profile = ({ navigation }) => {
 
 
     return (
-        <View style={styles.container}>
-            <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={{ flex: 1 }}
-            >
-            <View style={styles.headerProfile}>
-                <TouchableOpacity onPress={handleEdit}>
-                    {isEditing ? (
-                        <Image
-                            style={styles.headerButtonImage}
-                            source={require('./assets/save.png')}
-                        />
-                    ) : (
-                        <Image
-                            style={styles.headerButtonImage}
-                            source={require('./assets/edit.png')}
-                        />
-                    )}
-                </TouchableOpacity>
+            <View style={styles.content}>
+                <View style={styles.headerProfile}>
+                    <TouchableOpacity onPress={handleEdit}>
+                        {isEditing ? (
+                            <Image
+                                style={styles.headerButtonImage}
+                                source={require('./assets/save.png')}
+                            />
+                        ) : (
+                            <Image
+                                style={styles.headerButtonImage}
+                                source={require('./assets/edit.png')}
+                            />
+                        )}
+                    </TouchableOpacity>
                     {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
                     {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
-                <TouchableOpacity onPress ={confirmDelete}>
-                    <Image
-                        style={styles.headerButtonImageTwo} // Make sure to define this style
-                        source={require('./assets/delete.png')} // Path to your edit icon
-                    />
-                    {/*<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by bsd - Flaticon</a>*/}
-                </TouchableOpacity>
+                    <TouchableOpacity onPress ={confirmDelete}>
+                        <Image
+                            style={styles.headerButtonImageTwo} // Make sure to define this style
+                            source={require('./assets/delete.png')} // Path to your edit icon
+                        />
+                        {/*<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by bsd - Flaticon</a>*/}
+                    </TouchableOpacity>
 
-            <View style={styles.content}>
+                </View>
                 {userData && (
                     <>
-                    <ScrollView style={styles.container}>
-                        <View style={styles.avatarContainer}>
-                            <View style={styles.avatar}>
-                                <Image
-                                    style={styles.avatar}
-                                    source={require('./assets/Anna.jpeg')}
-                                />
-                            </View>
+                    <KeyboardAvoidingView
+                        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                        style={{ flex: 1 }}
+                    >
+                        <ScrollView style={styles.container}>
+                            <View style={styles.avatarContainer}>
+                                <View style={styles.avatar}>
+                                    <Image
+                                        style={styles.avatar}
+                                        source={require('./assets/Anna.jpeg')}
+                                    />
+                                </View>
 
-                            <TouchableOpacity>
-                                <Text>Update Photo</Text>
-                            </TouchableOpacity>
-                        </View>
+                                <TouchableOpacity>
+                                    <Text>Update Photo</Text>
+                                </TouchableOpacity>
+                            </View>
                     
                         <View style={styles.fieldContainer}>
                             <Text style={styles.fieldTitle}>Name:</Text>
@@ -243,6 +241,8 @@ const Profile = ({ navigation }) => {
                     </View>
                 </ScrollView>
                 </KeyboardAvoidingView>
+                    </>
+                )}
                 <Footer navigation={navigation} activeTab="Profile" />
             </View>
 
