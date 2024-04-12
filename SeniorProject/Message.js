@@ -3,26 +3,11 @@ import {View, FlatList, TouchableOpacity, Image, Text, TextInput} from 'react-na
 import styles from './styles';
 import Footer from "./Footer";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
 import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 import MessageList from './components/MessageList';
 import MessageInput from './components/MessageInput';
+import { db } from './firebaseConfig';
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCX2PhLpEJX_n39XVit_bjCz-XFiQaIn-Y",
-    authDomain: "seniordesign-ae10f.firebaseapp.com",
-    projectId: "seniordesign-ae10f",
-    storageBucket: "seniordesign-ae10f.appspot.com",
-    messagingSenderId: "230961872715",
-    appId: "1:230961872715:web:6e830a80f457c42770b2ce",
-    measurementId: "G-H4KWB4XWGK",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const colRef = collection(db, 'users');
 
 const Message = ({ navigation }) => {
     // This state will eventually be populated with data from your database

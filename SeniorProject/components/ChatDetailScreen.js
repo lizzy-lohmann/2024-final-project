@@ -3,24 +3,8 @@ import React from 'react';
 import { View } from 'react-native';
 import MessageList from './MessageList'; // Path to your MessageList component
 import MessageInput from './MessageInput'; // Path to your MessageInput component
-import { db } from './firebaseConfig'; // Path to your Firebase config
 import { useAuth } from './useAuth';
-import {initializeApp} from "firebase/app";
-import {collection, getFirestore} from "firebase/firestore"; // Path to your auth hook or context
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCX2PhLpEJX_n39XVit_bjCz-XFiQaIn-Y",
-    authDomain: "seniordesign-ae10f.firebaseapp.com",
-    projectId: "seniordesign-ae10f",
-    storageBucket: "seniordesign-ae10f.appspot.com",
-    messagingSenderId: "230961872715",
-    appId: "1:230961872715:web:6e830a80f457c42770b2ce",
-    measurementId: "G-H4KWB4XWGK",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const colRef = collection(db, 'users');
+import { db } from './firebaseConfig';
 
 const ChatDetailScreen = ({ route }) => {
     const { chatId } = route.params;
