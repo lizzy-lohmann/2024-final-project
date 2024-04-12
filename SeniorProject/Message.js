@@ -74,10 +74,8 @@ const Message = ({ navigation }) => {
             {/* Chat List */}
             <FlatList
                 data={chats}
-                keyExtractor={(item) => item.userId}
-                renderItem={({ item }) => (
-                    <ChatItem chat={item} onPress={() => handlePressChatItem(item)} />
-                )}
+                keyExtractor={(item, index) => item.id ? item.id.toString() : index.toString()}
+                renderItem={({ item }) => <ChatItem chat={item} onPress={() => handlePressChatItem(item)} />}
             />
             <Footer navigation={navigation} activeTab="Messaging" />
         </View>
@@ -93,10 +91,14 @@ const placeholderUsersChats = [
 ];
 
 const ChatItem = ({ chat, onPress }) => {
+    // Placeholder image require statement
+    const placeholderAvatar = require('./assets/Gabbi.jpeg');
+
     return (
         <TouchableOpacity onPress={onPress} style={styles.chatItem}>
-            <View style={styles.chatItem}>
-                <Image source={chat.avatarUrl} style={styles.messageAvatar} />
+            <View style={styles.chatItemLeft}>
+                {/* Use placeholder image as source */}
+                <Image source={placeholderAvatar} style={styles.avatar} />
             </View>
             <View style={styles.chatDetails}>
                 <Text style={styles.userName}>{chat.userName}</Text>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import {collection, query, where, orderBy, onSnapshot, getFirestore, getDocs, addDoc} from "firebase/firestore";
 import MessageItem from './MessageItem';
-import { useAuth } from './useAuth';
+import { useAuth } from '../useAuth';
 import { db } from '../firebaseConfig.js';
 
 const MessageList = ({ chatId }) => {
@@ -28,10 +28,8 @@ const MessageList = ({ chatId }) => {
   return (
       <FlatList
           data={messages}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-              <MessageItem message={item} isCurrentUser={item.isCurrentUser} />
-          )}
+          keyExtractor={(item, index) => item.id ? item.id.toString() : index.toString()}
+          renderItem={({ item }) => <MessageItem message={item} isCurrentUser={item.isCurrentUser} />}
           style={styles.container}
       />
   );
