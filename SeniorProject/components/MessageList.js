@@ -19,6 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const colRef = collection(db, 'users');
+const messagesDB = collection(db, 'chats');
 
 const MessageList = ({ chatId }) => {
   const [messages, setMessages] = useState([]);
