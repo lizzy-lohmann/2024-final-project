@@ -3,7 +3,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import {collection, query, where, orderBy, onSnapshot, getFirestore, getDocs, addDoc} from "firebase/firestore";
 import MessageItem from './MessageItem';
 import { useAuth } from './useAuth';
-import { db } from './firebaseConfig';
+import { db } from '../firebaseConfig.js';
 
 const MessageList = ({ chatId }) => {
   const [messages, setMessages] = useState([]);

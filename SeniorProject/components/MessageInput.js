@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Button } from 'react-native';
 import {collection, addDoc, serverTimestamp} from "firebase/firestore";
-import { db } from './firebaseConfig';
+import { db } from '../firebaseConfig.js';
 
 const MessageInput = ({ chatId, db, userId }) => {
   const [text, setText] = useState('');

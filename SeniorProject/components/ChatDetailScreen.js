@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import MessageList from './MessageList'; // Path to your MessageList component
 import MessageInput from './MessageInput'; // Path to your MessageInput component
 import { useAuth } from './useAuth';
-import { db } from './firebaseConfig';
+import { db } from '../firebaseConfig.js';
 
 const ChatDetailScreen = ({ route }) => {
     const { chatId } = route.params;

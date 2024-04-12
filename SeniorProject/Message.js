@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 import MessageList from './components/MessageList';
 import MessageInput from './components/MessageInput';
-import { db } from './firebaseConfig';
+import { db } from './firebaseConfig.js';
 
 
 const Message = ({ navigation }) => {
