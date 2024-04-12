@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Button } from 'react-native';
-import {collection, addDoc, serverTimestamp} from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, serverTimestamp } from "firebase/firestore";
 import { db } from '../firebaseConfig.js';
 
-const MessageInput = ({ chatId, db, userId }) => {
+const MessageInput = ({ chatId, userId }) => {
   const [text, setText] = useState('');
 
   const handleSend = async () => {
-    if (text) {
-      await addDoc(collection(db, 'chats', chatId, 'messages'), {
-        content: text,
-        sender: userId,
-        timestamp: serverTimestamp() // This will set the timestamp when the message is added to the database
-      });
-      setText('');
+    if (text.trim()) {
+      const chatDocRef = doc(db, 'chats', chatId);
+      try {
+        await updateDoc(chatDocRef, {
+          messages: arrayUnion({
+            content: text.trim(),
+            sender: userId,
+            time: serverTimestamp()
+          })
+        });
+        setText('');
+      } catch (error) {
+        console.error("Error sending message: ", error);
+      }
     }
   };
 
