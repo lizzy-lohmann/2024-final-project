@@ -83,7 +83,7 @@ const Profile = ({ navigation }) => {
 
 
     return (
-            <View style={styles.container}>
+            <View style={styles.fullScreen}>
                 <View style={styles.headerProfile}>
                     <TouchableOpacity onPress={handleEdit}>
                         {isEditing ? (

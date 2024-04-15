@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="worked on fixing merge and sign up page">
+    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="fixed profile page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Events.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/SignUp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,8 @@
       <workItem from="1712427759661" duration="7050000" />
       <workItem from="1712513617443" duration="8614000" />
       <workItem from="1712575065411" duration="8738000" />
-      <workItem from="1712774416313" duration="6895000" />
+      <workItem from="1712774416313" duration="6973000" />
+      <workItem from="1713146063319" duration="430000" />
     </task>
     <task id="LOCAL-00001" summary="added functionality to icons">
       <option name="closed" value="true" />
@@ -93,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712777581351</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed profile page">
+      <option name="closed" value="true" />
+      <created>1712790354156</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712790354156</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added functionality to icons" />
     <MESSAGE value="worked on fixing merge and sign up page" />
-    <option name="LAST_COMMIT_MESSAGE" value="worked on fixing merge and sign up page" />
+    <MESSAGE value="fixed profile page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed profile page" />
   </component>
 </project>
