@@ -1,26 +1,39 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Button } from 'react-native';
+import { doc, updateDoc, arrayUnion, serverTimestamp } from "firebase/firestore";
+import { db } from '../firebaseConfig.js';
 
-const MessageInput = ({ onSend }) => {
+const MessageInput = ({ chatId, userId }) => {
   const [text, setText] = useState('');
 
-  const handleSend = () => {
-    if (text) {
-      onSend(text);
-      setText('');
+  const handleSend = async () => {
+    if (text.trim()) {
+      const chatDocRef = doc(db, 'chats', chatId);
+      try {
+        await updateDoc(chatDocRef, {
+          messages: arrayUnion({
+            content: text.trim(),
+            sender: userId,
+            time: serverTimestamp()
+          })
+        });
+        setText('');
+      } catch (error) {
+        console.error("Error sending message: ", error);
+      }
     }
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={text}
-        onChangeText={setText}
-        placeholder="Type a message..."
-      />
-      <Button title="Send" onPress={handleSend} />
-    </View>
+      <View style={styles.container}>
+        <TextInput
+            style={styles.input}
+            value={text}
+            onChangeText={setText}
+            placeholder="Type a message..."
+        />
+        <Button title="Send" onPress={handleSend} />
+      </View>
   );
 };
 
