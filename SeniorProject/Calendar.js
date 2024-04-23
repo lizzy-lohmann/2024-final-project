@@ -8,6 +8,7 @@ import { getFirestore } from 'firebase/firestore';
 import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCX2PhLpEJX_n39XVit_bjCz-XFiQaIn-Y",
     authDomain: "seniordesign-ae10f.firebaseapp.com",

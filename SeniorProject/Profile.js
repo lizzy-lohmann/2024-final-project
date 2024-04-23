@@ -6,7 +6,7 @@ import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from './Footer';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
-
+ 
 const Profile = ({ navigation }) => {
 
     const [userData, setUserData] = useState(null);
