@@ -12,6 +12,7 @@ import SignUp from './SignUp';
 const Stack = createNativeStackNavigator();
 
 
+
 function App() {
     return (
         <NavigationContainer>
