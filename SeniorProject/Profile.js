@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
 import Footer from './Footer';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
-
+ 
 const Profile = ({ navigation }) => {
     const [userData, setUserData] = useState(null);
     const [isEditing, setIsEditing] = useState(false);

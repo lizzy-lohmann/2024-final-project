@@ -9,6 +9,7 @@ const Events = ({ title, date, time, description, RSVP, instagram, facebook, web
         Linking.openURL(url).catch(err => console.error("Couldn't load page", err));
     };
 
+
     return (
         <View style={styles.eventContainer}>
             <View style={styles.eventHeader}>

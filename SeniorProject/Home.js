@@ -18,6 +18,7 @@ const firebaseConfig = {
     measurementId: "G-H4KWB4XWGK",
 };
 
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const colRef = collection(db, "users");
