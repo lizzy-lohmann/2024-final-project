@@ -15,6 +15,7 @@ const Events = ({ title, date, time, description, RSVP, instagram, facebook, web
     };
 
 
+
     return (
         <View style={styles.eventContainer}>
             <View style={styles.eventHeader}>
