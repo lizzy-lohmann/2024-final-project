@@ -14,6 +14,7 @@ const Events = ({ title, date, time, description, RSVP, instagram, facebook, web
         // Here you would also handle the logic to update the like status in your backend/database         JUSTIN/CHASE
     };
 
+
     return (
         <View style={styles.eventContainer}>
             <View style={styles.eventHeader}>

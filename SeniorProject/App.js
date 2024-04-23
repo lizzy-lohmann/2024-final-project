@@ -15,6 +15,7 @@ import {AuthProvider} from "./useAuth";
 
 const Stack = createNativeStackNavigator();
 
+
 function App() {
     return (
         <AuthProvider>
