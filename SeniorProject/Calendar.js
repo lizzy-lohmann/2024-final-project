@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, TextInput, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, ScrollView, Image} from 'react-native';
 import  styles  from './styles';
 import Footer from "./Footer";
 import Events from "./Events";
@@ -43,8 +43,8 @@ const Calendar = ({ navigation }) => {
     }, []);
 
 
+
     const handleSearch = async () => {
-        // Implement your search functionality
         try {
             let querySnapshot;
 
@@ -69,9 +69,11 @@ const Calendar = ({ navigation }) => {
         }
     };
 
-    const likedEvents = () => {
-        setEvents(likedEvents);
+    const goToLikedEvents = () => {
+        navigation.navigate('LikedEvents');
+
     };
+
 
     return (
         <View style={styles.fullScreen}>
@@ -80,24 +82,26 @@ const Calendar = ({ navigation }) => {
                     style={styles.searchInput}
                     onChangeText={setSearchQuery}
                     value={searchQuery}
-                    placeholder="Search"
+                    source={require('./assets/find.png')}
                     placeholderTextColor="#000000"
                     returnKeyType="search"
                     onSubmitEditing={handleSearch}
                 />
-                <TouchableOpacity onPress={handleSearch} style={styles.headerButton}>
-                    <Text style={styles.headerButtonText}>Search</Text>
-                </TouchableOpacity>
+                <Image
+                    style={styles.headerButton}
+                    source={require('./assets/find.png')}
+                />
+                {/*<a href="https://www.flaticon.com/free-icons/magnifier" title="magnifier icons">Magnifier icons created by The Icon Tree - Flaticon</a>*/}
             </View>
             <ScrollView style={styles.container}>
                 {events.map((event, index) => (
                     <Events key={index} {...event} />
                 ))}
             </ScrollView>
-            <TouchableOpacity onPress={likedEvents} style ={styles.subFooter} >
+            <TouchableOpacity onPress={goToLikedEvents} style={styles.subFooter}>
                 <Text style={styles.subFooterText}>My Liked Events</Text>
             </TouchableOpacity>
-            <Footer navigation={navigation} />
+            <Footer navigation={navigation} activeTab="Calendar" />
         </View>
     );
 };

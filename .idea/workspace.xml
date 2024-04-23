@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="can go between pages and have basic style">
+    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="fixed profile page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/styles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +16,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
-        <option value="CSS File" />
-        <option value="JSX File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -29,113 +23,92 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/SeniorProject/App.js" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2bgrw9cMGQMKODaazBdbkh8PthM" />
+  <component name="ProjectId" id="2ejpHiuiuzuzWzQBDXd4BplkYS9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.App.jsx.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Lizzy",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/bgogel02/Documents/GitHub/2024-final-project/SeniorProject",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "ts.external.directory.path": "/Users/lizzylohmann/Documents/2024-final-project/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/SeniorProject/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/SeniorProject" />
+      <recent name="$PROJECT_DIR$/SeniorProject/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/SeniorProject" />
-      <recent name="$PROJECT_DIR$/SeniorProject/ios/SeniorProject/pages" />
-      <recent name="$PROJECT_DIR$/SeniorProject/ios/SeniorProject" />
+      <recent name="$PROJECT_DIR$/SeniorProject/assets" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-18.0.2-azul-18.0.2.1-4caba194b151-86c6c00a" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="730b12d9-4560-4416-a8a9-6eb970962930" name="Changes" comment="" />
-      <created>1706647798780</created>
+      <changelist id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="" />
+      <created>1712427757051</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1706647798780</updated>
-      <workItem from="1706647800277" duration="26000" />
-      <workItem from="1706647983179" duration="6229000" />
-      <workItem from="1707252648712" duration="10000" />
-      <workItem from="1707252755479" duration="10414000" />
-      <workItem from="1707347287515" duration="1088000" />
+      <updated>1712427757051</updated>
+      <workItem from="1712427759661" duration="7050000" />
+      <workItem from="1712513617443" duration="8614000" />
+      <workItem from="1712575065411" duration="8738000" />
+      <workItem from="1712774416313" duration="6973000" />
+      <workItem from="1713146063319" duration="430000" />
     </task>
-    <task id="LOCAL-00001" summary="got app">
+    <task id="LOCAL-00001" summary="added functionality to icons">
       <option name="closed" value="true" />
-      <created>1707253114742</created>
+      <created>1712433421790</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1707253114742</updated>
+      <updated>1712433421790</updated>
     </task>
-    <task id="LOCAL-00002" summary="working on style sheet">
+    <task id="LOCAL-00002" summary="worked on fixing merge and sign up page">
       <option name="closed" value="true" />
-      <created>1707254311764</created>
+      <created>1712777581351</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1707254311764</updated>
+      <updated>1712777581351</updated>
     </task>
-    <task id="LOCAL-00003" summary="working on style sheet">
+    <task id="LOCAL-00003" summary="fixed profile page">
       <option name="closed" value="true" />
-      <created>1707334776120</created>
+      <created>1712790354156</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1707334776120</updated>
+      <updated>1712790354156</updated>
     </task>
-    <task id="LOCAL-00004" summary="can go between pages and have basic style">
-      <option name="closed" value="true" />
-      <created>1707411311252</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1707411311252</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="got app" />
-    <MESSAGE value="working on style sheet" />
-    <MESSAGE value="can go between pages and have basic style" />
-    <option name="LAST_COMMIT_MESSAGE" value="can go between pages and have basic style" />
+    <MESSAGE value="added functionality to icons" />
+    <MESSAGE value="worked on fixing merge and sign up page" />
+    <MESSAGE value="fixed profile page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed profile page" />
   </component>
 </project>
