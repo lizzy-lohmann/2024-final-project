@@ -26,9 +26,17 @@ const Profile = ({ navigation }) => {
                     if (!querySnapshot.empty) {
                         const userData = querySnapshot.docs[0].data();
                         setUserData(userData);
+                        setSelectedCity(userData.location);
                     }
-                    setSelectedCity(userData.location);
+                    else {
+                        console.log('User not found');
+                        // Handle case where user data is not found
+                    }
+                }else {
+                    console.log('UserID not found in AsyncStorage');
+                    // Handle case where userID is not found in AsyncStorage
                 }
+
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
