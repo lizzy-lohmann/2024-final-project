@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, Text, TouchableOpacity, TextInput, Image, ScrollView, KeyboardAvoidingView,  Platform} from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    TextInput,
+    Image,
+    ScrollView,
+    KeyboardAvoidingView,
+    Platform,
+    StyleSheet
+} from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from './Footer';
@@ -166,8 +176,8 @@ const Profile = ({ navigation }) => {
                     {/*<a href="https://www.flaticon.com/free-icons/logout" title="logout icons">Logout icons created by Pixel perfect - Flaticon</a>*/}
                     <TouchableOpacity onPress ={confirmLogout}>
                         <Image
-                            style={styles.headerButtonImageTwo} // Make sure to define this style
-                            source={require('./assets/logout.png')} // Path to your edit icon
+                            style={styles.headerButtonImageTwo}
+                            source={require('./assets/logout.png')}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity onPress ={confirmDelete}>
@@ -291,25 +301,28 @@ const Profile = ({ navigation }) => {
 
 
                         <View style={styles.fieldContainer}>
-                        <Text style={styles.fieldTitle}>Location: (Scroll)</Text>
-                        {isEditing ? (
-                            <View style={styles.pickerContainer}>
-                                <Picker
-                                    selectedValue={selectedCity}
-                                    onValueChange={handleLocationChange}
-                                    style={styles.picker}
-                                >
-                                    <Picker.Item label="Des Moines, IA" value="Des Moines, IA" />
-                                    <Picker.Item label="Chicago, IL" value="Chicago, IL" />
-                                    <Picker.Item label="Minneapolis, MN" value="Minneapolis, MN" />
-                                </Picker>
+                            <Text style={styles.fieldTitle}>Location:</Text>
+                            <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                            {isEditing ? (
+                                <RNPickerSelect
+                                    onValueChange={(value) => handleLocationChange(value)}
+                                    items={[
+                                        { label: 'Des Moines, IA', value: 'Des Moines, IA' },
+                                        { label: 'Chicago, IL', value: 'Chicago, IL' },
+                                        { label: 'Minneapolis, MN', value: 'Minneapolis, MN' },
+                                    ]}
+                                    style={pickerSelectStyles}
+                                    value={selectedCity}
+                                    useNativeAndroidPickerStyle={false}
+                                    placeholder={{
+                                        label: userData.location,
+                                    }}
+                                />
+                            ) : (
+                                    <Text style={styles.fieldText}>{userData.location}</Text>
+                            )}
                             </View>
-                        ) : (
-                            <View style={styles.textBox}>
-                                <Text style={styles.fieldText}>{userData.location}</Text>
-                            </View>
-                        )}
-                    </View>
+                        </View>
                 </ScrollView>
                 </KeyboardAvoidingView>
                     </>
@@ -319,5 +332,25 @@ const Profile = ({ navigation }) => {
 
     );
 };
+
+const pickerSelectStyles = StyleSheet.create({
+    inputIOS: {
+        fontSize: 14,
+        paddingVertical: 12,
+        //paddingHorizontal: 10,
+        color: 'black',
+        paddingRight: 30,
+    },
+    inputAndroid: {
+        fontSize: 16,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderWidth: 0.5,
+        borderColor: 'purple',
+        borderRadius: 8,
+        color: 'black',
+        paddingRight: 30,
+    },
+});
 
 export default Profile;
