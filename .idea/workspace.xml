@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="fixed profile page">
+      <change afterPath="$PROJECT_DIR$/SeniorProject/assets/logout.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +81,7 @@
       <workItem from="1712575065411" duration="8738000" />
       <workItem from="1712774416313" duration="6973000" />
       <workItem from="1713146063319" duration="430000" />
+      <workItem from="1713903632113" duration="5682000" />
     </task>
     <task id="LOCAL-00001" summary="added functionality to icons">
       <option name="closed" value="true" />

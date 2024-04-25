@@ -149,8 +149,17 @@ const styles = StyleSheet.create({
         width: 120,
         height: 135,
         borderRadius: 65,
-        backgroundColor: '#cccccc',
+        backgroundColor: '#cfb8ec',
         marginBottom: 5,
+    },
+    placeholderAvatar: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        backgroundColor: '#e1e1e1',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 20,
     },
     pickerContainer: {
         borderWidth: 1,

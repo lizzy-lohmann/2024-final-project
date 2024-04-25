@@ -31,7 +31,7 @@ const Login = ({ navigation }) => {
             if (!querySnapshot.empty) {
                 const user = querySnapshot.docs[0].data(); // Assuming username is unique
                 await AsyncStorage.setItem('username', username); // Store user information in AsyncStorage
-                navigation.navigate('Home');
+                navigation.replace('Home');
             } else {
                 Alert.alert('Invalid credentials', 'Username or password is incorrect.');
             }
