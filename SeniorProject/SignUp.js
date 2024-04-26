@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, KeyboardAvoidingView,  Platform } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 import { launchImageLibrary } from 'react-native-image-picker';
+import RNPickerSelect from 'react-native-picker-select';
 
 
 
@@ -194,16 +194,22 @@ const SignUp = ({ navigation }) => {
                 onChangeText={setAboutMe}
             />
 
-            <View style={styles.inputPicker}>
-                <Picker
-                    selectedValue={selectedCity}
-                    onValueChange={handleLocationChange}
-                    style={styles.picker}
-                >
-                    <Picker.Item label="Des Moines, IA" value="Des Moines, IA" />
-                    <Picker.Item label="Chicago, IL" value="Chicago, IL" />
-                    <Picker.Item label="Minneapolis, MN" value="Minneapolis, MN" />
-                </Picker>
+            <View style={styles.input}>
+                <RNPickerSelect
+                    onValueChange={(setLocation)}
+                    items={[
+                        { label: 'Des Moines, IA', value: 'Des Moines, IA' },
+                        { label: 'Chicago, IL', value: 'Chicago, IL' },
+                        { label: 'Minneapolis, MN', value: 'Minneapolis, MN' },
+                    ]}
+                    style={pickerSelectStyles}
+                    useNativeAndroidPickerStyle={false}
+                    placeholder={{
+                        label: 'Select a city...',
+                        value: "",
+                    }}
+                    value={location}
+                />
             </View>
 
 
@@ -286,6 +292,21 @@ const styles = StyleSheet.create({
         height: 135,
         borderRadius: 65,
         backgroundColor: '#cfb8ec',
+    },
+});
+
+const pickerSelectStyles = StyleSheet.create({
+    inputIOS: {
+        fontSize: 16,
+        paddingVertical: 12,
+        color: 'black',
+        paddingRight: 30,
+    },
+    inputAndroid: {
+        fontSize: 16,
+        paddingVertical: 8,
+        color: 'black',
+        paddingRight: 30,
     },
 });
 export default SignUp;
