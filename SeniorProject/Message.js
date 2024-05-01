@@ -27,24 +27,34 @@ const Message = ({ navigation }) => {
     // Fetch chats for a user from Firestore
     useEffect(() => {
         const fetchChats = async () => {
-            const userId = '3JksnyQ4CNs3uFzKpy0Y'; // Replace with the current user's ID
-            const chatsQuery = query(collection(db, 'chats'), where('participants', 'array-contains', userId));
-            const querySnapshot = await getDocs(chatsQuery);
+            try {
+                // Retrieve userID from AsyncStorage
+                const userId = await AsyncStorage.getItem('userID');
+                if (userId) {
+                    // Initialize Firestore and query chats collection
+                    const chatsQuery = query(collection(db, 'chats'), where('participants', 'array-contains', userId));
+                    const querySnapshot = await getDocs(chatsQuery);
+                    const chat = querySnapshot.docs[0];
+                    const chatID = chat.id;
+                    await AsyncStorage.setItem('chatID', chatID);
+                    const chatsArray = querySnapshot.docs.map(doc => {
+                        const data = doc.data();
+                        const lastMessage = data.messages.length > 0 ? data.messages[data.messages.length - 1] : null;
+                        return {
+                            chatId: doc.id,
+                            participants: data.participants,
+                            lastMessage: lastMessage ? lastMessage.content : '',
+                            lastMessageTime: lastMessage ? lastMessage.time : '',
+                        };
+                    });
 
-            const chatsArray = querySnapshot.docs.map(doc => {
-                // Assuming each chat document's structure matches the one from your screenshot
-                const data = doc.data();
-                const lastMessage = data.messages.length > 0 ? data.messages[data.messages.length - 1] : null;
-                return {
-                    chatId: doc.id,
-                    participants: data.participants,
-                    lastMessage: lastMessage ? lastMessage.content : '',
-                    lastMessageTime: lastMessage ? lastMessage.time : '',
-                    // You would also need to resolve user details like username and avatar for each participant here
-                };
-            });
-
-            setChats(chatsArray);
+                    setChats(chatsArray);
+                } else {
+                    console.log('UserID not found in AsyncStorage');
+                }
+            } catch (error) {
+                console.error('Error fetching chats:', error);
+            }
         };
 
         fetchChats();

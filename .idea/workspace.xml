@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="added avatar option to sign up page. Can't backswipe anymore. Succesfully log out and delete profile">
+
+    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="trying to fix issues">
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/ChatDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/ChatDetailScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/package-lock.json" afterDir="false" />
@@ -35,20 +40,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/SeniorProject/assets&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/SeniorProject/assets",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\jschu\\IdeaProjects\\2024-final-project\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SeniorProject/assets" />
@@ -122,7 +127,7 @@
     <MESSAGE value="added functionality to icons" />
     <MESSAGE value="worked on fixing merge and sign up page" />
     <MESSAGE value="fixed profile page" />
-    <MESSAGE value="added avatar option to sign up page. Can't backswipe anymore. Succesfully log out and delete profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="added avatar option to sign up page. Can't backswipe anymore. Succesfully log out and delete profile" />
+    <MESSAGE value="trying to fix issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to fix issues" />
   </component>
 </project>

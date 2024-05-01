@@ -29,9 +29,14 @@ const Login = ({ navigation }) => {
         try {
             const querySnapshot = await getDocs(query(colRef, where('username', '==', username), where('password', '==', password)));
             if (!querySnapshot.empty) {
-                const user = querySnapshot.docs[0].data(); // Assuming username is unique
-                await AsyncStorage.setItem('username', username); // Store user information in AsyncStorage
-                navigation.replace('Home');
+                const user = querySnapshot.docs[0]; // Assuming username is unique
+                const userID = user.id;
+                const userData = user.data();
+                console.log(username);
+                console.log(userID);
+                await AsyncStorage.setItem('userID', userID); // Store user information in AsyncStorage
+                await AsyncStorage.setItem('username', username);
+                navigation.navigate('Home');
             } else {
                 Alert.alert('Invalid credentials', 'Username or password is incorrect.');
             }
