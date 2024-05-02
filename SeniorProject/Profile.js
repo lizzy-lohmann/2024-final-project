@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    TextInput,
-    Image,
-    ScrollView,
-    KeyboardAvoidingView,
-    Platform,
-    StyleSheet
-} from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
+import {View, Text, TouchableOpacity, TextInput, Image, ScrollView, KeyboardAvoidingView,  Platform} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from './Footer';
-import { getFirestore, collection, query, where, getDocs, deleteDoc } from 'firebase/firestore';
+import {getFirestore, collection, query, where, getDocs, setDoc, doc} from 'firebase/firestore';
 
 
 const Profile = ({ navigation }) => {
@@ -23,6 +13,7 @@ const Profile = ({ navigation }) => {
     const [userData, setUserData] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [selectedCity, setSelectedCity] = useState('');
+    const [editedUserData, setEditedUserData] = useState({});
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -51,24 +42,53 @@ const Profile = ({ navigation }) => {
         handleInputChange('location', itemValue);
     };
 
+// Modify handleEdit function to reset editedUserData when exiting edit mode
     const handleEdit = () => {
         setIsEditing(!isEditing);
     };
 
+// Modify handleInputChange function to update editedUserData instead of userData
     const handleInputChange = (name, value) => {
-        {/*                                                                              STILL NEED TO SAVE TO DATABSE*/}
-        setUserData(prevState => ({
+        setEditedUserData(prevState => ({
             ...prevState,
             [name]: value,
         }));
     };
 
-    const saveChanges = () => {
-        setIsEditing(false);
+// Implement the function to save changes to the database
+    const saveChanges = async () => {
+        try {
+            if (!userData || !editedUserData) {
+                console.error('User data or edited data is missing.');
+                return;
+            }
 
+            // Merge editedUserData with userData to update only the changed fields
+            const updatedUserData = {
+                ...userData,
+                ...editedUserData
+            };
+
+            const userID = await AsyncStorage.getItem('userID');
+            const db = getFirestore();
+            const userDocRef = doc(db, 'users', userID);
+
+            await setDoc(userDocRef, updatedUserData, { merge: true });
+
+            // Update userData state with the updated data
+            setUserData(updatedUserData);
+            // Reset editedUserData state
+            setEditedUserData({});
+            // Exit edit mode
+            setIsEditing(false);
+            // Show success message if needed
+            Alert.alert('Success', 'Profile updated successfully.');
+        } catch (error) {
+            console.error('Error updating user data:', error);
+            // Show error message if needed
+            Alert.alert('Error', 'Failed to update profile. Please try again later.');
+        }
     };
-
-
 
     const confirmDelete = () => {
         Alert.alert(
@@ -82,94 +102,25 @@ const Profile = ({ navigation }) => {
                 },
                 {
                     text: 'Yes',
-                    onPress: () => deleteProfile()
+                    onPress: () => deleteProfile()// Here you would call the function to delete the profile
                 },
             ],
             { cancelable: false }
         );
     };
-    const deleteProfile = async () => {
-        try {
-            const username = await AsyncStorage.getItem('username');
-            if (!username) {
-                console.error('No username found');
-                return;
-            }
-
-            const db = getFirestore();
-            const usersRef = collection(db, 'users');
-            const userQuery = query(usersRef, where('username', '==', username));
-            const querySnapshot = await getDocs(userQuery);
-
-            if (!querySnapshot.empty) {
-                const userDocRef = querySnapshot.docs[0].ref;
-                await deleteDoc(userDocRef);
-                console.log("Profile deleted successfully.");
-                await AsyncStorage.removeItem('username');
-
-                navigation.replace('Login');
-                navigation.reset({
-                    index: 0,
-                    routes: [{ name: 'Login' }],
-                });
-            } else {
-                console.log("No user found with the given username.");
-            }
-        } catch (error) {
-            console.error('Error deleting profile:', error);
-        }
-    };
-
-
-
-    const confirmLogout = () => {
-        Alert.alert(
-            'Log Out',
-            'Are you sure you want to log out of your profile?',
-            [
-                {
-                    text: 'Cancel',
-                    onPress: () => console.log('Cancel Pressed'),
-                    style: 'cancel',
-                },
-                {
-                    text: 'Yes',
-                    onPress: () => logoutProfile()
-                },
-            ],
-            { cancelable: false }
-        );
-    };
-    const logoutProfile = () => {
-        AsyncStorage.removeItem('username')
-            .then(() => {
-                navigation.replace('Login');
-                navigation.reset({
-                    index: 0,
-                    routes: [{ name: 'Login' }],
-                });
-            })
-            .catch((error) => {
-                console.error('Error during logout:', error);
-            });
+    const deleteProfile = () => {
+        //add code to delete profile than go back to login screen
     }
 
 
     return (
         <View style={styles.fullScreen}>
             <View style={styles.headerProfile}>
-                <TouchableOpacity onPress={handleEdit}>
-                    {isEditing ? (
-                        <Image
-                            style={styles.headerButtonImage}
-                            source={require('./assets/save.png')}
-                        />
-                    ) : (
-                        <Image
-                            style={styles.headerButtonImage}
-                            source={require('./assets/edit.png')}
-                        />
-                    )}
+                <TouchableOpacity onPress={isEditing ? saveChanges : handleEdit}>
+                    <Image
+                        style={styles.headerButtonImage}
+                        source={isEditing ? require('./assets/save.png') : require('./assets/edit.png')}
+                    />
                 </TouchableOpacity>
                 {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
                 {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
@@ -332,25 +283,5 @@ const Profile = ({ navigation }) => {
 
     );
 };
-
-const pickerSelectStyles = StyleSheet.create({
-    inputIOS: {
-        fontSize: 14,
-        paddingVertical: 12,
-        //paddingHorizontal: 10,
-        color: 'black',
-        paddingRight: 30,
-    },
-    inputAndroid: {
-        fontSize: 16,
-        paddingHorizontal: 10,
-        paddingVertical: 8,
-        borderWidth: 0.5,
-        borderColor: 'purple',
-        borderRadius: 8,
-        color: 'black',
-        paddingRight: 30,
-    },
-});
 
 export default Profile;
