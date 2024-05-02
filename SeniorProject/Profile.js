@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from './Footer';
-import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import {getFirestore, collection, query, where, getDocs, setDoc, doc} from 'firebase/firestore';
 
 
 const Profile = ({ navigation }) => {
@@ -13,6 +13,7 @@ const Profile = ({ navigation }) => {
     const [userData, setUserData] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [selectedCity, setSelectedCity] = useState('');
+    const [editedUserData, setEditedUserData] = useState({});
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -49,24 +50,53 @@ const Profile = ({ navigation }) => {
         handleInputChange('location', itemValue);
     };
 
+// Modify handleEdit function to reset editedUserData when exiting edit mode
     const handleEdit = () => {
-             setIsEditing(!isEditing);
-         };
+        setIsEditing(!isEditing);
+    };
 
+// Modify handleInputChange function to update editedUserData instead of userData
     const handleInputChange = (name, value) => {
-        {/*                                                                              STILL NEED TO SAVE TO DATABSE*/}
-        setUserData(prevState => ({
+        setEditedUserData(prevState => ({
             ...prevState,
             [name]: value,
         }));
     };
 
-    const saveChanges = () => {
-        setIsEditing(false);
+// Implement the function to save changes to the database
+    const saveChanges = async () => {
+        try {
+            if (!userData || !editedUserData) {
+                console.error('User data or edited data is missing.');
+                return;
+            }
 
+            // Merge editedUserData with userData to update only the changed fields
+            const updatedUserData = {
+                ...userData,
+                ...editedUserData
+            };
+
+            const userID = await AsyncStorage.getItem('userID');
+            const db = getFirestore();
+            const userDocRef = doc(db, 'users', userID);
+
+            await setDoc(userDocRef, updatedUserData, { merge: true });
+
+            // Update userData state with the updated data
+            setUserData(updatedUserData);
+            // Reset editedUserData state
+            setEditedUserData({});
+            // Exit edit mode
+            setIsEditing(false);
+            // Show success message if needed
+            Alert.alert('Success', 'Profile updated successfully.');
+        } catch (error) {
+            console.error('Error updating user data:', error);
+            // Show error message if needed
+            Alert.alert('Error', 'Failed to update profile. Please try again later.');
+        }
     };
-
-
 
     const confirmDelete = () => {
         Alert.alert(
@@ -92,34 +122,27 @@ const Profile = ({ navigation }) => {
 
 
     return (
-            <View style={styles.fullScreen}>
-                <View style={styles.headerProfile}>
-                    <TouchableOpacity onPress={handleEdit}>
-                        {isEditing ? (
-                            <Image
-                                style={styles.headerButtonImage}
-                                source={require('./assets/save.png')}
-                            />
-                        ) : (
-                            <Image
-                                style={styles.headerButtonImage}
-                                source={require('./assets/edit.png')}
-                            />
-                        )}
-                    </TouchableOpacity>
-                    {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
-                    {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
-                    <TouchableOpacity onPress ={confirmDelete}>
-                        <Image
-                            style={styles.headerButtonImageTwo} // Make sure to define this style
-                            source={require('./assets/delete.png')} // Path to your edit icon
-                        />
-                        {/*<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by bsd - Flaticon</a>*/}
-                    </TouchableOpacity>
+        <View style={styles.fullScreen}>
+            <View style={styles.headerProfile}>
+                <TouchableOpacity onPress={isEditing ? saveChanges : handleEdit}>
+                    <Image
+                        style={styles.headerButtonImage}
+                        source={isEditing ? require('./assets/save.png') : require('./assets/edit.png')}
+                    />
+                </TouchableOpacity>
+                {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
+                {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
+                <TouchableOpacity onPress ={confirmDelete}>
+                    <Image
+                        style={styles.headerButtonImageTwo} // Make sure to define this style
+                        source={require('./assets/delete.png')} // Path to your edit icon
+                    />
+                    {/*<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by bsd - Flaticon</a>*/}
+                </TouchableOpacity>
 
-                </View>
-                {userData && (
-                    <>
+            </View>
+            {userData && (
+                <>
                     <KeyboardAvoidingView
                         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                         style={{ flex: 1 }}
@@ -137,124 +160,124 @@ const Profile = ({ navigation }) => {
                                     <Text>Update Photo</Text>
                                 </TouchableOpacity>
                             </View>
-                    
-                        <View style={styles.fieldContainer}>
-                            <Text style={styles.fieldTitle}>Name:</Text>
-                            <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+
+                            <View style={styles.fieldContainer}>
+                                <Text style={styles.fieldTitle}>Name:</Text>
+                                <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                                    {isEditing ? (
+                                        <TextInput
+                                            style={styles.input}
+                                            value={userData.name}
+                                            onChangeText={(text) => setUserData({...userData, name: text})}
+                                        />
+                                    ) : (
+                                        <Text style={styles.fieldText}>{userData.name}</Text>
+                                    )}
+                                </View>
+                            </View>
+
+                            <View style={styles.fieldContainer}>
+                                <Text style={styles.fieldTitle}>Pronouns:</Text>
+                                <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                                    {isEditing ? (
+                                        <TextInput
+                                            style={styles.input}
+                                            value={userData.pronouns}
+                                            onChangeText={(text) => setUserData({...userData, pronouns: text})}
+                                        />
+                                    ) : (
+                                        <Text style={styles.fieldText}>{userData.pronouns}</Text>
+                                    )}
+                                </View>
+                            </View>
+
+                            <View style={styles.fieldContainer}>
+                                <Text style={styles.fieldTitle}>Profession:</Text>
+                                <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                                    {isEditing ? (
+                                        <TextInput
+                                            style={styles.input}
+                                            value={userData.profession}
+                                            onChangeText={(text) => setUserData({...userData, profession: text})}
+                                        />
+                                    ) : (
+                                        <Text style={styles.fieldText}>{userData.profession}</Text>
+                                    )}
+                                </View>
+                            </View>
+
+                            <View style={styles.fieldContainer}>
+                                <Text style={styles.fieldTitle}>Birthday:</Text>
+                                <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                                    {isEditing ? (
+                                        <TextInput
+                                            style={styles.input}
+                                            value={userData.birthday}
+                                            onChangeText={(text) => setUserData({...userData, birthday: text})}
+                                        />
+                                    ) : (
+                                        <Text style={styles.fieldText}>{userData.birthday}</Text>
+                                    )}
+                                </View>
+                            </View>
+
+                            <View style={styles.fieldContainer}>
+                                <Text style={styles.fieldTitle}>Interests:</Text>
+                                <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                                    {isEditing ? (
+                                        <TextInput
+                                            style={styles.input}
+                                            value={userData.interests}
+                                            onChangeText={(text) => setUserData({...userData, interests: text})}
+                                        />
+                                    ) : (
+                                        <Text style={styles.fieldText}>{userData.interests}</Text>
+                                    )}
+                                </View>
+                            </View>
+
+                            <View style={styles.fieldContainer}>
+                                <Text style={styles.fieldTitle}>About Me:</Text>
+                                <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                                    {isEditing ? (
+                                        <TextInput
+                                            style={styles.input}
+                                            value={userData.aboutMe}
+                                            onChangeText={(text) => setUserData({...userData, aboutMe: text})}
+                                        />
+                                    ) : (
+                                        <Text style={styles.fieldText}>{userData.aboutMe}</Text>
+                                    )}
+                                </View>
+                            </View>
+
+
+                            <View style={styles.fieldContainer}>
+                                <Text style={styles.fieldTitle}>Location: (Scroll)</Text>
                                 {isEditing ? (
-                                    <TextInput
-                                        style={styles.input}
-                                        value={userData.name}
-                                        onChangeText={(text) => setUserData({...userData, name: text})}
-                                    />
+                                    <View style={styles.pickerContainer}>
+                                        <Picker
+                                            selectedValue={selectedCity}
+                                            onValueChange={handleLocationChange}
+                                            style={styles.picker}
+                                        >
+                                            <Picker.Item label="Des Moines, IA" value="Des Moines, IA" />
+                                            <Picker.Item label="Chicago, IL" value="Chicago, IL" />
+                                            <Picker.Item label="Minneapolis, MN" value="Minneapolis, MN" />
+                                        </Picker>
+                                    </View>
                                 ) : (
-                                    <Text style={styles.fieldText}>{userData.name}</Text>
+                                    <View style={styles.textBox}>
+                                        <Text style={styles.fieldText}>{userData.location}</Text>
+                                    </View>
                                 )}
                             </View>
-                        </View>
-
-                        <View style={styles.fieldContainer}>
-                            <Text style={styles.fieldTitle}>Pronouns:</Text>
-                            <View style={[styles.textBox, isEditing && styles.editTextBox]}>
-                                {isEditing ? (
-                                    <TextInput
-                                        style={styles.input}
-                                        value={userData.pronouns}
-                                        onChangeText={(text) => setUserData({...userData, pronouns: text})}
-                                    />
-                                ) : (
-                                    <Text style={styles.fieldText}>{userData.pronouns}</Text>
-                                )}
-                            </View>
-                        </View>
-
-                        <View style={styles.fieldContainer}>
-                            <Text style={styles.fieldTitle}>Profession:</Text>
-                            <View style={[styles.textBox, isEditing && styles.editTextBox]}>
-                                {isEditing ? (
-                                    <TextInput
-                                        style={styles.input}
-                                        value={userData.profession}
-                                        onChangeText={(text) => setUserData({...userData, profession: text})}
-                                    />
-                                ) : (
-                                    <Text style={styles.fieldText}>{userData.profession}</Text>
-                                )}
-                            </View>
-                        </View>
-
-                        <View style={styles.fieldContainer}>
-                            <Text style={styles.fieldTitle}>Birthday:</Text>
-                            <View style={[styles.textBox, isEditing && styles.editTextBox]}>
-                                {isEditing ? (
-                                    <TextInput
-                                        style={styles.input}
-                                        value={userData.birthday}
-                                        onChangeText={(text) => setUserData({...userData, birthday: text})}
-                                    />
-                                ) : (
-                                    <Text style={styles.fieldText}>{userData.birthday}</Text>
-                                )}
-                            </View>
-                        </View>
-
-                        <View style={styles.fieldContainer}>
-                            <Text style={styles.fieldTitle}>Interests:</Text>
-                            <View style={[styles.textBox, isEditing && styles.editTextBox]}>
-                                {isEditing ? (
-                                    <TextInput
-                                        style={styles.input}
-                                        value={userData.interests}
-                                        onChangeText={(text) => setUserData({...userData, interests: text})}
-                                    />
-                                ) : (
-                                    <Text style={styles.fieldText}>{userData.interests}</Text>
-                                )}
-                            </View>
-                        </View>
-
-                        <View style={styles.fieldContainer}>
-                            <Text style={styles.fieldTitle}>About Me:</Text>
-                            <View style={[styles.textBox, isEditing && styles.editTextBox]}>
-                                {isEditing ? (
-                                    <TextInput
-                                        style={styles.input}
-                                        value={userData.aboutMe}
-                                        onChangeText={(text) => setUserData({...userData, aboutMe: text})}
-                                    />
-                                ) : (
-                                    <Text style={styles.fieldText}>{userData.aboutMe}</Text>
-                                )}
-                            </View>
-                        </View>
-
-
-                        <View style={styles.fieldContainer}>
-                        <Text style={styles.fieldTitle}>Location: (Scroll)</Text>
-                        {isEditing ? (
-                            <View style={styles.pickerContainer}>
-                                <Picker
-                                    selectedValue={selectedCity}
-                                    onValueChange={handleLocationChange}
-                                    style={styles.picker}
-                                >
-                                    <Picker.Item label="Des Moines, IA" value="Des Moines, IA" />
-                                    <Picker.Item label="Chicago, IL" value="Chicago, IL" />
-                                    <Picker.Item label="Minneapolis, MN" value="Minneapolis, MN" />
-                                </Picker>
-                            </View>
-                        ) : (
-                            <View style={styles.textBox}>
-                                <Text style={styles.fieldText}>{userData.location}</Text>
-                            </View>
-                        )}
-                    </View>
-                </ScrollView>
-                </KeyboardAvoidingView>
-                    </>
-                )}
-                <Footer navigation={navigation} activeTab="Profile" />
-            </View>
+                        </ScrollView>
+                    </KeyboardAvoidingView>
+                </>
+            )}
+            <Footer navigation={navigation} activeTab="Profile" />
+        </View>
 
     );
 };
