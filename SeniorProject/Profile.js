@@ -27,17 +27,9 @@ const Profile = ({ navigation }) => {
                     if (!querySnapshot.empty) {
                         const userData = querySnapshot.docs[0].data();
                         setUserData(userData);
-                        setSelectedCity(userData.location);
                     }
-                    else {
-                        console.log('User not found');
-                        // Handle case where user data is not found
-                    }
-                }else {
-                    console.log('UserID not found in AsyncStorage');
-                    // Handle case where userID is not found in AsyncStorage
+                    setSelectedCity(userData.location);
                 }
-
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
@@ -132,6 +124,13 @@ const Profile = ({ navigation }) => {
                 </TouchableOpacity>
                 {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
                 {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
+                {/*<a href="https://www.flaticon.com/free-icons/logout" title="logout icons">Logout icons created by Pixel perfect - Flaticon</a>*/}
+                <TouchableOpacity onPress ={confirmLogout}>
+                    <Image
+                        style={styles.headerButtonImageTwo}
+                        source={require('./assets/logout.png')}
+                    />
+                </TouchableOpacity>
                 <TouchableOpacity onPress ={confirmDelete}>
                     <Image
                         style={styles.headerButtonImageTwo} // Make sure to define this style
@@ -253,24 +252,27 @@ const Profile = ({ navigation }) => {
 
 
                             <View style={styles.fieldContainer}>
-                                <Text style={styles.fieldTitle}>Location: (Scroll)</Text>
-                                {isEditing ? (
-                                    <View style={styles.pickerContainer}>
-                                        <Picker
-                                            selectedValue={selectedCity}
-                                            onValueChange={handleLocationChange}
-                                            style={styles.picker}
-                                        >
-                                            <Picker.Item label="Des Moines, IA" value="Des Moines, IA" />
-                                            <Picker.Item label="Chicago, IL" value="Chicago, IL" />
-                                            <Picker.Item label="Minneapolis, MN" value="Minneapolis, MN" />
-                                        </Picker>
-                                    </View>
-                                ) : (
-                                    <View style={styles.textBox}>
+                                <Text style={styles.fieldTitle}>Location:</Text>
+                                <View style={[styles.textBox, isEditing && styles.editTextBox]}>
+                                    {isEditing ? (
+                                        <RNPickerSelect
+                                            onValueChange={(value) => handleLocationChange(value)}
+                                            items={[
+                                                { label: 'Des Moines, IA', value: 'Des Moines, IA' },
+                                                { label: 'Chicago, IL', value: 'Chicago, IL' },
+                                                { label: 'Minneapolis, MN', value: 'Minneapolis, MN' },
+                                            ]}
+                                            style={pickerSelectStyles}
+                                            value={selectedCity}
+                                            useNativeAndroidPickerStyle={false}
+                                            placeholder={{
+                                                label: userData.location,
+                                            }}
+                                        />
+                                    ) : (
                                         <Text style={styles.fieldText}>{userData.location}</Text>
-                                    </View>
-                                )}
+                                    )}
+                                </View>
                             </View>
                         </ScrollView>
                     </KeyboardAvoidingView>
