@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import { Alert } from 'react-native';
 import styles from './styles';
 import Footer from './Footer';
-import {getFirestore, collection, query, where, getDocs, setDoc, doc} from 'firebase/firestore';
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 
 
 const Profile = ({ navigation }) => {
@@ -13,7 +13,6 @@ const Profile = ({ navigation }) => {
     const [userData, setUserData] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [selectedCity, setSelectedCity] = useState('');
-    const [editedUserData, setEditedUserData] = useState({});
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -50,53 +49,24 @@ const Profile = ({ navigation }) => {
         handleInputChange('location', itemValue);
     };
 
-// Modify handleEdit function to reset editedUserData when exiting edit mode
     const handleEdit = () => {
-        setIsEditing(!isEditing);
-    };
+             setIsEditing(!isEditing);
+         };
 
-// Modify handleInputChange function to update editedUserData instead of userData
     const handleInputChange = (name, value) => {
-        setEditedUserData(prevState => ({
+        {/*                                                                              STILL NEED TO SAVE TO DATABSE*/}
+        setUserData(prevState => ({
             ...prevState,
             [name]: value,
         }));
     };
 
-// Implement the function to save changes to the database
-    const saveChanges = async () => {
-        try {
-            if (!userData || !editedUserData) {
-                console.error('User data or edited data is missing.');
-                return;
-            }
+    const saveChanges = () => {
+        setIsEditing(false);
 
-            // Merge editedUserData with userData to update only the changed fields
-            const updatedUserData = {
-                ...userData,
-                ...editedUserData
-            };
-
-            const username = await AsyncStorage.getItem('userID');
-            const db = getFirestore();
-            const userDocRef = doc(db, 'users', username);
-
-            await setDoc(userDocRef, updatedUserData, { merge: true });
-
-            // Update userData state with the updated data
-            setUserData(updatedUserData);
-            // Reset editedUserData state
-            setEditedUserData({});
-            // Exit edit mode
-            setIsEditing(false);
-            // Show success message if needed
-            Alert.alert('Success', 'Profile updated successfully.');
-        } catch (error) {
-            console.error('Error updating user data:', error);
-            // Show error message if needed
-            Alert.alert('Error', 'Failed to update profile. Please try again later.');
-        }
     };
+
+
 
     const confirmDelete = () => {
         Alert.alert(
@@ -124,11 +94,18 @@ const Profile = ({ navigation }) => {
     return (
             <View style={styles.fullScreen}>
                 <View style={styles.headerProfile}>
-                    <TouchableOpacity onPress={isEditing ? saveChanges : handleEdit}>
-                        <Image
-                            style={styles.headerButtonImage}
-                            source={isEditing ? require('./assets/save.png') : require('./assets/edit.png')}
-                        />
+                    <TouchableOpacity onPress={handleEdit}>
+                        {isEditing ? (
+                            <Image
+                                style={styles.headerButtonImage}
+                                source={require('./assets/save.png')}
+                            />
+                        ) : (
+                            <Image
+                                style={styles.headerButtonImage}
+                                source={require('./assets/edit.png')}
+                            />
+                        )}
                     </TouchableOpacity>
                     {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
                     {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
