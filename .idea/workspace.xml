@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="trying to fix issues">
+    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="messages working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/ChatDetailScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/ChatDetailScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,20 +32,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/SeniorProject/assets",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\jschu\\IdeaProjects\\2024-final-project\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/SeniorProject/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jschu\\IdeaProjects\\2024-final-project\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SeniorProject/assets" />
@@ -78,6 +75,10 @@
       <workItem from="1712575065411" duration="8738000" />
       <workItem from="1712774416313" duration="6973000" />
       <workItem from="1713146063319" duration="430000" />
+      <workItem from="1714574062813" duration="1608000" />
+      <workItem from="1714659060034" duration="5013000" />
+      <workItem from="1714668551991" duration="33000" />
+      <workItem from="1714668600310" duration="329000" />
     </task>
     <task id="LOCAL-00001" summary="added functionality to icons">
       <option name="closed" value="true" />
@@ -103,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712790354156</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="messages working">
+      <option name="closed" value="true" />
+      <created>1714067461772</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714067461772</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +123,7 @@
     <MESSAGE value="worked on fixing merge and sign up page" />
     <MESSAGE value="fixed profile page" />
     <MESSAGE value="trying to fix issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to fix issues" />
+    <MESSAGE value="messages working" />
+    <option name="LAST_COMMIT_MESSAGE" value="messages working" />
   </component>
 </project>

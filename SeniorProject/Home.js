@@ -60,7 +60,7 @@ const Home = ({ navigation }) => {
                 const startSearch = searchQuery.trim();
                 const endSearch = searchQuery.trim() + '\uf8ff'; // Unicode character '\uf8ff' is used to match all possible suffixes
 
-                querySnapshot = await getDocs(query(colRef, where("name", ">=", startSearch), where("title", "<=", endSearch)));
+                querySnapshot = await getDocs(query(colRef, where("name", ">=", startSearch), where("name", "<=", endSearch)));
             }
 
             // Extract the data of each document
