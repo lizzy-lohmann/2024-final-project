@@ -93,16 +93,11 @@ const Message = ({ navigation }) => {
 };
 
 
-// Placeholder data structure
-// const placeholderUsersChats = [
-//     { userId: 'user1', userName: 'Alice', lastMessage: 'Hey there!', lastMessageTime: '3:45 PM', avatarUrl: require('./assets/Anna.jpeg')},
-//     { userId: 'user2', userName: 'Bob', lastMessage: 'How are you?', lastMessageTime: 'Yesterday', avatarUrl: require('./assets/Gabbi.jpeg') },
-//     // ... more users
-// ];
 
 const ChatItem = ({ chat, onPress }) => {
     // Placeholder image require statement
-    const placeholderAvatarChat = require('./assets/Gabbi.jpeg');
+    const placeholderAvatarChat = require('./assets/Lizzy.jpeg');
+
 
     return (
         <TouchableOpacity onPress={onPress} style={styles.chatItem}>

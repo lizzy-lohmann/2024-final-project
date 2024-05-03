@@ -115,7 +115,7 @@ const Profile = ({ navigation }) => {
                 },
                 {
                     text: 'Yes',
-                    onPress: () => deleteProfile()// Here you would call the function to delete the profile
+                    onPress: () => deleteProfile()
                 },
             ],
             { cancelable: false }
@@ -189,11 +189,18 @@ const Profile = ({ navigation }) => {
     return (
         <View style={styles.fullScreen}>
             <View style={styles.headerProfile}>
-                <TouchableOpacity onPress={isEditing ? saveChanges : handleEdit}>
-                    <Image
-                        style={styles.headerButtonImage}
-                        source={isEditing ? require('./assets/save.png') : require('./assets/edit.png')}
-                    />
+                <TouchableOpacity onPress={handleEdit}>
+                    {isEditing ? (
+                        <Image
+                            style={styles.headerButtonImage}
+                            source={require('./assets/save.png')}
+                        />
+                    ) : (
+                        <Image
+                            style={styles.headerButtonImage}
+                            source={require('./assets/edit.png')}
+                        />
+                    )}
                 </TouchableOpacity>
                 {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
                 {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
@@ -224,7 +231,8 @@ const Profile = ({ navigation }) => {
                                 <View style={styles.avatar}>
                                     <Image
                                         style={styles.avatar}
-                                        //source={require('./assets/Anna.jpeg')}
+
+                                        source={require('./assets/Brenna.jpeg')}
                                     />
                                 </View>
 

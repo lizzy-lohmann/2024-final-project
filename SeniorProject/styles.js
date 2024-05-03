@@ -161,6 +161,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
     },
+
+    avatarChat: {
+        width: 72,
+        height: 80,
+        borderRadius: 65,
+        backgroundColor: '#cfb8ec',
+        marginBottom: 5,
+    },
+
     placeholderAvatarChat: {
         width: 40,
         height: 60,
@@ -171,13 +180,6 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
 
-    avatarChat: {
-        width: 72,
-        height: 80,
-        borderRadius: 65,
-        backgroundColor: '#cfb8ec',
-        marginBottom: 5,
-    },
     pickerContainer: {
         borderWidth: 1,
         borderColor: '#dbc9f1',
@@ -244,7 +246,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#999',
         marginLeft: 10,
-        alignItems: 'center',
+
     },
     lastMessageTime: {
         fontSize: 12,
