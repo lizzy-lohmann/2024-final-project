@@ -53,7 +53,7 @@ const Message = ({ navigation }) => {
                     console.log('UserID not found in AsyncStorage');
                 }
             } catch (error) {
-                console.error('Error fetching chats:', error);
+                //console.error('Error fetching chats:', error);
             }
         };
 

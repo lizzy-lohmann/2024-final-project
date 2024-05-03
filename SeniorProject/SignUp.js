@@ -5,6 +5,7 @@ import { getFirestore } from 'firebase/firestore';
 import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 import { launchImageLibrary } from 'react-native-image-picker';
 import RNPickerSelect from 'react-native-picker-select';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 
@@ -24,6 +25,7 @@ const colRef = collection(db, "users");
 
 const checkUser = async (uName) => {
     const [users, setUsers] = useState([]);
+
 
     useEffect(() => {
         // Fetch users from Firestore
@@ -45,6 +47,8 @@ const checkUser = async (uName) => {
 }
 
 const SignUp = ({ navigation }) => {
+    const [currentUserLocation, setCurrentUserLocation] = useState(null); // State to store current user's location
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -57,6 +61,12 @@ const SignUp = ({ navigation }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const createAccount = async () => {
+        // Check if username is empty
+        if (!username.trim()) {
+            alert("Username cannot be empty.");
+            return; // Exit the function if username is empty
+        }
+
         const colRef = collection(db, "users")
         const querySnapshot = await getDocs(query(collection(db, "users"), where("username", "==", username)));
         if (!querySnapshot.empty) {
@@ -88,11 +98,22 @@ const SignUp = ({ navigation }) => {
             setInterests('');
             setAboutMe('');
             setLocation('');
-            navigation.navigate('Home');
+
+            const userID = docRef.id;
+            //const username = newUser.username;
+            const userLocation = newUser.location;
+            setCurrentUserLocation(newUser.location);
+
+
+            await AsyncStorage.setItem('userID', userID); // Store user information in AsyncStorage
+            console.log(await AsyncStorage.getItem('userID'))
+            await AsyncStorage.setItem('username', username);
+            navigation.replace('Home', { currentUserLocation: userLocation});
         } catch (error) {
             console.error('Error creating account:', error);
         }
     };
+
     const [selectedCity, setSelectedCity] = useState(setLocation);
 
     const handleLocationChange = (itemValue) => {

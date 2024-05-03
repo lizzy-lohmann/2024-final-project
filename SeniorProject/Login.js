@@ -24,6 +24,8 @@ const colRef = collection(db, 'users');
 const Login = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [currentUserLocation, setCurrentUserLocation] = useState(null); // State to store current user's location
+
 
     const handleLogin = async () => {
         try {
@@ -32,11 +34,15 @@ const Login = ({ navigation }) => {
                 const user = querySnapshot.docs[0]; // Assuming username is unique
                 const userID = user.id;
                 const userData = user.data();
+                const userLocation = userData.location;
+                setCurrentUserLocation(userLocation);
                 console.log(username);
                 console.log(userID);
+                console.log(userLocation);
+
                 await AsyncStorage.setItem('userID', userID); // Store user information in AsyncStorage
                 await AsyncStorage.setItem('username', username);
-                navigation.navigate('Home');
+                navigation.replace('Home', { currentUserLocation: userLocation});
             } else {
                 Alert.alert('Invalid credentials', 'Username or password is incorrect.');
             }
