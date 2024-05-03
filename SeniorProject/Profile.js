@@ -115,28 +115,104 @@ const Profile = ({ navigation }) => {
                 },
                 {
                     text: 'Yes',
-                    onPress: () => deleteProfile()// Here you would call the function to delete the profile
+                    onPress: () => deleteProfile()
                 },
             ],
             { cancelable: false }
         );
     };
-    const deleteProfile = () => {
-        //add code to delete profile than go back to login screen
+    const deleteProfile = async () => {
+        try {
+            const username = await AsyncStorage.getItem('username');
+            if (!username) {
+                console.error('No username found');
+                return;
+            }
+
+            const db = getFirestore();
+            const usersRef = collection(db, 'users');
+            const userQuery = query(usersRef, where('username', '==', username));
+            const querySnapshot = await getDocs(userQuery);
+
+            if (!querySnapshot.empty) {
+                const userDocRef = querySnapshot.docs[0].ref;
+                await deleteDoc(userDocRef);
+                console.log("Profile deleted successfully.");
+                await AsyncStorage.removeItem('username');
+
+                navigation.replace('Login');
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'Login' }],
+                });
+            } else {
+                console.log("No user found with the given username.");
+            }
+        } catch (error) {
+            console.error('Error deleting profile:', error);
+        }
+    };
+
+
+
+    const confirmLogout = () => {
+        Alert.alert(
+            'Log Out',
+            'Are you sure you want to log out of your profile?',
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                },
+                {
+                    text: 'Yes',
+                    onPress: () => logoutProfile()
+                },
+            ],
+            { cancelable: false }
+        );
+    };
+    const logoutProfile = () => {
+        AsyncStorage.removeItem('username')
+            .then(() => {
+                navigation.replace('Login');
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'Login' }],
+                });
+            })
+            .catch((error) => {
+                console.error('Error during logout:', error);
+            });
     }
 
 
     return (
         <View style={styles.fullScreen}>
             <View style={styles.headerProfile}>
-                <TouchableOpacity onPress={isEditing ? saveChanges : handleEdit}>
-                    <Image
-                        style={styles.headerButtonImage}
-                        source={isEditing ? require('./assets/save.png') : require('./assets/edit.png')}
-                    />
+                <TouchableOpacity onPress={handleEdit}>
+                    {isEditing ? (
+                        <Image
+                            style={styles.headerButtonImage}
+                            source={require('./assets/save.png')}
+                        />
+                    ) : (
+                        <Image
+                            style={styles.headerButtonImage}
+                            source={require('./assets/edit.png')}
+                        />
+                    )}
                 </TouchableOpacity>
                 {/*<a href="https://www.flaticon.com/free-icons/contact" title="contact icons">Contact icons created by bsd - Flaticon</a>*/}
                 {/*<a href="https://www.flaticon.com/free-icons/writer" title="writer icons">Writer icons created by SeyfDesigner - Flaticon</a>*/}
+                {/*<a href="https://www.flaticon.com/free-icons/logout" title="logout icons">Logout icons created by Pixel perfect - Flaticon</a>*/}
+                <TouchableOpacity onPress ={confirmLogout}>
+                    <Image
+                        style={styles.headerButtonImageTwo}
+                        source={require('./assets/logout.png')}
+                    />
+                </TouchableOpacity>
                 <TouchableOpacity onPress ={confirmDelete}>
                     <Image
                         style={styles.headerButtonImageTwo} // Make sure to define this style
