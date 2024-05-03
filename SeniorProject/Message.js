@@ -94,10 +94,10 @@ const Message = ({ navigation }) => {
 
 
 
-
 const ChatItem = ({ chat, onPress }) => {
     // Placeholder image require statement
     const placeholderAvatarChat = require('./assets/Lizzy.jpeg');
+
 
     return (
         <TouchableOpacity onPress={onPress} style={styles.chatItem}>

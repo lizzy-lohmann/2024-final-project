@@ -153,8 +153,6 @@ const Profile = ({ navigation }) => {
         }
     };
 
-
-
     const confirmLogout = () => {
         Alert.alert(
             'Log Out',
@@ -233,6 +231,7 @@ const Profile = ({ navigation }) => {
                                 <View style={styles.avatar}>
                                     <Image
                                         style={styles.avatar}
+
                                         source={require('./assets/Brenna.jpeg')}
                                     />
                                 </View>
