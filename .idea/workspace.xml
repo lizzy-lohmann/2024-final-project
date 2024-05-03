@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="trying to fix issues">
+      <change afterPath="$PROJECT_DIR$/SeniorProject/assets/Brenna.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/LikedEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/LikedEvents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,20 +34,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/SeniorProject/assets",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/SeniorProject/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/bgogel02/Desktop/College/SeniorDesign/2024-final-project/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SeniorProject/assets" />
@@ -75,6 +79,7 @@
       <workItem from="1713146063319" duration="430000" />
       <workItem from="1713903632113" duration="8555000" />
       <workItem from="1714528768974" duration="40000" />
+      <workItem from="1714668359957" duration="2055000" />
     </task>
     <task id="LOCAL-00001" summary="added functionality to icons">
       <option name="closed" value="true" />

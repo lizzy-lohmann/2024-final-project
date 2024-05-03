@@ -19,24 +19,14 @@ const LikedEvents = ({ navigation }) => {
         // static data bellow for example         change for collected data from database
         const fetchedEvents = [
             {
-                title: 'Readers Luncheon',
-                date: 'April 15th 2024',
-                time: '12:00pm',
-                description: 'Do you love to read? Come to Pollys Soups for a luncheon and meet other readers! Bring your favorite book! ',
-                RSVP: 'N/A',
-                instagram: 'https://www.instagram.com/bgogel02/',
-                facebook: 'N/A',
-                website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/BB'
-            },
-            {
-                title: 'Vues Social',
-                date: 'May 20th 2024',
-                time: '7-11pm',
-                description: 'Want to meet new people around your age? The Vue is hosting a social for young people in their 20s! Come gather have drinks and appetizers',
-                RSVP: 'www.rsvp.com',
-                instagram: 'https://www.instagram.com/lizzy_lohmann33/',
-                facebook: 'N/A',
-                website: 'https://github.com/lizzy-lohmann/2024-final-project/tree/Lizzy',
+                title: 'Vues Dueling Pianos' ,
+                date: 'May 3rd, 2024',
+                time: '10PM-1AM',
+                description: 'Felix and Fingers Dueling Pianos is a high-energy, all-request sing-along show. This interactive act brings together music and comedy for a night you’ll be laughing about for weeks!',
+                RSVP: 'https://www.vuerooftop-ic.com/duelingpianos',
+                instagram: 'https://www.instagram.com/vuerooftop/',
+                facebook: 'https://www.facebook.com/vuerooftop',
+                website: 'https://www.vuerooftop-ic.com/vue-nique-events',
             },
         ];
         setEvents(fetchedEvents);
