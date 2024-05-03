@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="Fix commit break I hope">
+    <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="Userlocation pretty much fully implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,6 +132,7 @@
     <MESSAGE value="fixed profile page" />
     <MESSAGE value="trying to fix issues" />
     <MESSAGE value="Fix commit break I hope" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix commit break I hope" />
+    <MESSAGE value="Userlocation pretty much fully implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Userlocation pretty much fully implemented" />
   </component>
 </project>
