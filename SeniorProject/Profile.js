@@ -157,7 +157,7 @@ const Profile = ({ navigation }) => {
                                 <View style={styles.avatar}>
                                     <Image
                                         style={styles.avatar}
-                                        source={require('./assets/Anna.jpeg')}
+                                        source={require('./assets/Brenna.jpeg')}
                                     />
                                 </View>
 
