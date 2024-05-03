@@ -14,6 +14,7 @@ const Profile = ({ navigation }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [selectedCity, setSelectedCity] = useState('');
     const [editedUserData, setEditedUserData] = useState({});
+    const [currentUserLocation, setCurrentUserLocation] = useState('');
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -28,6 +29,8 @@ const Profile = ({ navigation }) => {
                         const userData = querySnapshot.docs[0].data();
                         setUserData(userData);
                         setSelectedCity(userData.location);
+                        setCurrentUserLocation(userData.location); // Set initial currentUserLocation
+
                     }
                     else {
                         console.log('User not found');
@@ -85,6 +88,9 @@ const Profile = ({ navigation }) => {
 
             // Update userData state with the updated data
             setUserData(updatedUserData);
+
+            await AsyncStorage.setItem('currentUserLocation', updatedUserData.location);
+            setCurrentUserLocation(updatedUserData.location);
             // Reset editedUserData state
             setEditedUserData({});
             // Exit edit mode

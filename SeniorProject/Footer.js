@@ -1,12 +1,39 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, TouchableOpacity, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
 import styles from './styles';
 
 const Footer = ({ navigation, activeTab }) => {
+    const [currentUserLocation, setCurrentUserLocation] = useState(null);
+
+    useEffect(() => {
+        const fetchCurrentUserLocation = async () => {
+            try {
+                // Get userID from AsyncStorage
+                const userID = await AsyncStorage.getItem('userID');
+                if (userID) {
+                    // Fetch currentUserLocation from Firestore based on userID
+                    const db = getFirestore();
+                    const userRef = doc(db, 'users', userID);
+                    const userSnapshot = await getDoc(userRef);
+                    const userData = userSnapshot.data();
+                    if (userData && userData.location) {
+                        setCurrentUserLocation(userData.location);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching currentUserLocation:', error);
+            }
+        };
+
+        fetchCurrentUserLocation();
+    }, []);
+
     return (
         <View style={styles.footer}>
             <TouchableOpacity
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => navigation.navigate('Home', { currentUserLocation })}
                 style={[
                     styles.footerButton,
                     activeTab === 'Home' && styles.activeFooterButton
@@ -16,7 +43,6 @@ const Footer = ({ navigation, activeTab }) => {
                     style={styles.footerButtonImage}
                     source={require('./assets/home.png')}
                 />
-                {/*<a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a>*/}
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => navigation.navigate('Calendar')}
@@ -29,7 +55,6 @@ const Footer = ({ navigation, activeTab }) => {
                     style={styles.footerButtonImage}
                     source={require('./assets/calendar-check.png')}
                 />
-                {/*<a href="https://www.flaticon.com/free-icons/events" title="events icons">Events icons created by SeyfDesigner - Flaticon</a>*/}
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => navigation.navigate('Messaging')}

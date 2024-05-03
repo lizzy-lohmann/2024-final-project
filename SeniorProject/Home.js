@@ -26,26 +26,36 @@ const db = getFirestore(app);
 const colRef = collection(db, "users");
 
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation, route }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [profiles, setProfiles] = useState([]);
+    const {currentUserLocation} = route.params;
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const querySnapshot = await getDocs(colRef);
-                const eventData = querySnapshot.docs.map((doc) => doc.data());
+                let querySnapshot;
+                console.log(currentUserLocation);
+                if (!currentUserLocation) {
+                    // If current user's location is not available, fetch all users
+                    querySnapshot = await getDocs(colRef);
+                } else {
+                    // Filter users based on location
+                    querySnapshot = await getDocs(query(colRef, where("location", "==", currentUserLocation)));
+                }
+
+                // Extract the data of each document
+                const eventData = querySnapshot.docs.map(doc => doc.data());
+
+                // Set the fetched event data into the events state
                 setProfiles(eventData);
             } catch (error) {
                 console.error('Error fetching users:', error);
             }
         };
 
-        fetchUsers()
-            .catch(error => console.error('Error fetching users:', error));
-
-
-    }, []);
+        fetchUsers().catch(error => console.error('Error fetching users:', error));
+    }, [currentUserLocation]); // Run this effect whenever currentUserLocation changes
 
 
     const handleSearch = async () => {
