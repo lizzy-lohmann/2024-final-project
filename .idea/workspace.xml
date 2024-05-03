@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="618c99a0-9f78-4cd1-933b-afae3628b736" name="Changes" comment="Userlocation pretty much fully implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject/styles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
