@@ -42,7 +42,7 @@ const Login = ({ navigation }) => {
 
                 await AsyncStorage.setItem('userID', userID); // Store user information in AsyncStorage
                 await AsyncStorage.setItem('username', username);
-                navigation.navigate('Home', { currentUserLocation: userLocation});
+                navigation.replace('Home', { currentUserLocation: userLocation});
             } else {
                 Alert.alert('Invalid credentials', 'Username or password is incorrect.');
             }
